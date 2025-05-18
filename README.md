@@ -54,6 +54,7 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 - Hybrid comparisons against baselines
 
 ## Repository Structure
+```bash
 nog-stock-forecasting/
 │
 ├── README.md
@@ -61,11 +62,22 @@ nog-stock-forecasting/
 ├── .gitignore
 │
 ├── notebooks/
-│   └── NOG_forecasting.ipynb     # Your main modeling notebook
+│   └── NOG_forecasting.ipynb    
 │
-├── data/                         # Unprocessed CSVs or downloaded data
-│
+├── data/  
+│   └── NOG_2012-01-01_2025-04-27.csv                       
+|
+├── saved_models/  
+│   └── xgb_model.pkl  
+|
 ├── src/
-│   ├── __init__.py
-│   └── data_pipeline.py          # Your main data pipeline logic
+│   ├── data
+│       ├── __init__.py
+│       └── data_pipeline.py 
+│   └── features  
+│       ├── __init__.py
+│       └── feature_engineering.py 
+│   └── models     
+│       ├── __init__.py
+│       └── xgb.py 
     
