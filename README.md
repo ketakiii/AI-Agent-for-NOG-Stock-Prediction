@@ -52,3 +52,11 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 - ML: Linear Regression, XGBoost, Random Forest
 - DL: Prophet, LSTM
 - Hybrid comparisons against baselines
+
+## Repository Structure
+.
+├── notebooks/            # EDA + modeling notebooks
+├── data/                 # Raw and processed data files
+├── src/                  # Python modules for data, modeling
+    ├── data_pipeline.py  # to fetch data  
+    
