@@ -1,5 +1,6 @@
 import datetime
 from datetime import date
+from dateutil.relativedelta import relativedelta
 from src.features.feature_engineering import compute_technical_indicators, macroeconomic_indicators
 import math
 import numpy as np
@@ -23,7 +24,23 @@ def get_data_from_yahoo(ticker, startdate, enddate):
         pd.DataFrame: historical stock data.
     """
     df = yf.download(ticker, start=startdate, end=enddate)
-    df = df.dropna().reset_index(drop=True)
+    df = process_data_from_yahoo(df)
+    return df
+
+def process_data_from_yahoo(df):
+    """
+    Process the data fetched from Yahoo Finance.
+    
+    Args:
+        df (pd.DataFrame): The stock data DataFrame.
+
+    Returns:
+        pd.DataFrame: processed stock data.
+    """
+    headers_as_rows = pd.DataFrame([df.columns.tolist()])
+    cols = [col[0] for col in headers_as_rows.iloc[0].to_list()]
+    df.columns = cols
+    df.reset_index(inplace=True)
     return df
 
 def get_data_from_csv(filepath, startdate, enddate):
@@ -55,7 +72,7 @@ def preprocess_data(main_df, macro_df):
     merged_data.dropna(inplace=True)  # Drop any remaining NaN values
     return merged_data
 
-def run_pipeline(ticker='NOG', startdate='2023-04-27', enddate='2025-04-30'):
+def run_data_pipeline(ticker='NOG', csvflag=True):
     """
     Main func to run the data pipeline.
     Args:
@@ -66,14 +83,21 @@ def run_pipeline(ticker='NOG', startdate='2023-04-27', enddate='2025-04-30'):
         pd.DataFrame: Preprocessed data with technical and macroeconomic indicators.
     """
     # fetch stock data
-    filepath = 'data/NOG_2012-01-01_2025-04-27.csv'
-    stock_df = get_data_from_csv(filepath, startdate, enddate)
+    if csvflag:
+        startdate = '2023-04-27'
+        enddate ='2025-04-30'
+        stock_df = get_data_from_csv('data/NOG_2012-01-01_2025-04-27.csv', startdate, enddate)
+    else:
+        today = datetime.date.today()
+        startdate = today - relativedelta(years=2)
+        enddate = today
+        stock_df = get_data_from_yahoo(ticker, startdate, enddate)
     macro_df = macroeconomic_indicators(startdate, enddate)
     processed_data = preprocess_data(stock_df, macro_df)
     return processed_data
 
 if __name__ == "__main__":
-    df = run_pipeline()
+    df = run_data_pipeline()
     print(df.shape)
 
 

@@ -1,18 +1,19 @@
 import sys
-from src.data.data_pipeline import run_pipeline
+from src.data.data_pipeline import run_data_pipeline
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import xgboost as xgb
 import pickle
 import os
 
-def get_data():
+def get_data(flag):
     """
     Fetches and preprocess data from the data pipeline.
     """
-    df = run_pipeline()
+    df = run_data_pipeline(flag)
     features = df.drop(columns=['Date', 'Close'])
     target = df['Close']
     return features, target
@@ -76,8 +77,44 @@ def load_model(path='models/xgb_model.pkl'):
         model = pickle.load(f)
     return model
 
+def predict(model, X_test):
+    """
+    Make predictions using the trained model.
+    Args:
+        model (XGBRegressor): Trained XGBoost model.
+        X_test (pd.DataFrame): Testing features.
+    Returns:
+        predictions (np.ndarray): Predicted values.
+    """
+    predictions = model.predict(X_test)
+    return predictions
+
+def evaluate_model(model, X_test, y_test):
+    """
+    Evaluate the model using Mean Absolute Error (MAE).
+    Args:
+        model (XGBRegressor): Trained XGBoost model.
+        X_test (pd.DataFrame): Testing features.
+        y_test (pd.Series): Testing target.
+    Returns:
+        mae (float): Mean Absolute Error of the predictions.
+    """
+    preds = predict(model, X_test)
+    mse = mean_squared_error(y_test, preds)
+    mae = mean_absolute_error(y_test, preds)
+    r2 = r2_score(y_test, preds)
+    results = {
+        "MSE": mse,
+        "MAE": mae,
+        "R2": r2
+    }
+    return results
+
 if __name__ == "__main__":
-    save_model()
+    model = load_model()
+    fetchdata = get_data(False)
+    preds = predict(model, fetchdata)
+    print(preds)
 
 
 
