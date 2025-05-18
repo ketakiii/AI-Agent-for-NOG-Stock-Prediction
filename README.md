@@ -1,6 +1,6 @@
 # Northern Oil & Gas (NOG) Stock Price Forecasting
 
-An end-to-end time series forecasting pipeline that predicts the stock price of Northern Oil & Gas (NOG) using 15+ years of historical market and macroeconomic data. The project integrates advanced statistical models, deep learning, data pipelines, model monitoring, and real-time visual analytics.
+An end-to-end time series forecasting pipeline that predicts Northern Oil & Gas (NOG) stock price using 15+ years of historical market and macroeconomic data. The project integrates advanced statistical models, deep learning, data pipelines, model monitoring, and real-time visual analytics.
 
 ---
 
@@ -9,8 +9,8 @@ An end-to-end time series forecasting pipeline that predicts the stock price of 
 Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, specialising in non-operating interests in high-quality oil & gas assets. It presents a compelling forecasting challenge for several reasons:
 
 - **High Sensitivity to Macroeconomic Trends**: NOG's stock is closely tied to crude oil prices, interest rates, and global energy demand, making it ideal for studying the interplay between commodity markets and equities.
-- **Energy Sector Volatility**: The energy sector is inherently cyclical and volatile, offering rich patterns for time series modeling and anomaly detection.
-- **Market Relevance**: As a mid-cap stock in a critical sector, NOG is a useful proxy for understanding broader market behavior in energy and commodities.
+- **Energy Sector Volatility**: The energy sector is inherently cyclical and volatile, offering rich patterns for time series modelling and anomaly detection.
+- **Market Relevance**: As a mid-cap stock in a critical sector, NOG is a useful proxy for understanding broader market behaviour in energy and commodities.
 - **Actionable Use Case**: Forecasting NOG prices has real-world use cases in portfolio allocation, algorithmic trading strategies, and hedging oil price exposure.
 
 ---
@@ -55,16 +55,12 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 
 ## Repository Structure
 nog-stock-forecasting/
-│
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-│
 ├── notebooks/
 │   └── NOG_forecasting.ipynb     # Your main modeling notebook
-│
 ├── data/                         # Unprocessed CSVs or downloaded data
-│
 ├── src/
 │   ├── __init__.py
 │   └── data_pipeline.py          # Your main data pipeline logic
