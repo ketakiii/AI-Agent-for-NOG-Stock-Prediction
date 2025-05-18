@@ -1,0 +1,8 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MacOS + Linux + Windows
+.DS_Store
+
+# Pytest cache
+.pytest_cache/
