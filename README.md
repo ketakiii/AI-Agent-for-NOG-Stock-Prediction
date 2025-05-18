@@ -59,11 +59,13 @@ nog-stock-forecasting/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+│
 ├── notebooks/
 │   └── NOG_forecasting.ipynb     # Your main modeling notebook
+│
 ├── data/                         # Unprocessed CSVs or downloaded data
+│
 ├── src/
-│   ├── init__.py
-│   ├── data_pipeline.py          # Your main data pipeline logic
-│   │
+│   ├── __init__.py
+│   └── data_pipeline.py          # Your main data pipeline logic
     
