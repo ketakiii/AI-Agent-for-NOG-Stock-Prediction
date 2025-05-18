@@ -1,0 +1,5 @@
+numpy
+pandas
+pandas_datareader
+ta
+import yfinance as yf
