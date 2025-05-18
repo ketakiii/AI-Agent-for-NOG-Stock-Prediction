@@ -59,9 +59,9 @@ nog-stock-forecasting/
 ├── requirements.txt
 ├── .gitignore
 ├── notebooks/
-│   └── NOG_forecasting.ipynb     # Your main modeling notebook
-├── data/                         # Unprocessed CSVs or downloaded data
+│   └── NOG_forecasting.ipynb   
+├── data/                    
 ├── src/
 │   ├── __init__.py
-│   └── data_pipeline.py          # Your main data pipeline logic
+│   └── data_pipeline.py         
     
