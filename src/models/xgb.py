@@ -52,7 +52,7 @@ def train_model(X_train, y_train, params=None):
     model.fit(X_train, y_train)
     return model
 
-def save_model(path='models/xgb_model.pkl'):
+def save_model(path='saved_models/xgb_model.pkl'):
     """
     Save the trained model to a file.
     Args:
