@@ -60,16 +60,12 @@ nog-stock-forecasting/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-│
 ├── notebooks/
 │   └── NOG_forecasting.ipynb    
-│
 ├── data/  
 │   └── NOG_2012-01-01_2025-04-27.csv                       
-|
 ├── saved_models/  
 │   └── xgb_model.pkl  
-|
 ├── src/
 │   ├── data
 │       ├── __init__.py
