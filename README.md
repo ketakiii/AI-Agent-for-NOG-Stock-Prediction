@@ -80,4 +80,8 @@ nog-stock-forecasting/
 │   └── models     
 │       ├── __init__.py
 │       └── xgb.py 
-    
+│       └── embed.py 
+│   └── llm     
+│       ├── __init__.py
+│       └── llm_inference.py     
+│       └── rag_retrieval.py   
