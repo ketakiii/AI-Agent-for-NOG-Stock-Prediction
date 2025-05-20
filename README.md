@@ -53,6 +53,13 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 - DL: Prophet, LSTM
 - Hybrid comparisons against baselines
 
+## Visualization
+Tableau dashboard 1 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-1?publish=yes
+
+Tableau dashboard 2 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-2?publish=yes
+
+Tableau dashboard 3 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-3?publish=yes
+
 ## Repository Structure
 ```bash
 nog-stock-forecasting/
@@ -60,12 +67,16 @@ nog-stock-forecasting/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+│
 ├── notebooks/
 │   └── NOG_forecasting.ipynb    
+│
 ├── data/  
 │   └── NOG_2012-01-01_2025-04-27.csv                       
+|
 ├── saved_models/  
 │   └── xgb_model.pkl  
+|
 ├── src/
 │   ├── data
 │       ├── __init__.py
