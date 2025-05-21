@@ -60,6 +60,8 @@ Tableau dashboard 2 - https://public.tableau.com/app/profile/ketaki.kolhatkar/vi
 
 Tableau dashboard 3 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-3?publish=yes
 
+Tableau dashboard 4 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/Dashboard4?publish=yes
+
 ## Repository Structure
 ```bash
 nog-stock-forecasting/
