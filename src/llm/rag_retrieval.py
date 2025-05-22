@@ -9,9 +9,11 @@ def build_faiss_index(embeddings):
     Returns: 
         index
     """
-    dim = embeddings[0].shape[0]
+    if isinstance(embeddings, list):
+        embeddings = np.array(embeddings)
+    dim = embeddings.shape[1]
     index = faiss.IndexFlatL2(dim)
-    index.add(np.array(embeddings))
+    index.add(embeddings)
     return index
 
 def search_index(question_embedding, index, texts, top_k=5):
@@ -27,6 +29,5 @@ def search_index(question_embedding, index, texts, top_k=5):
     """
     question_embedding = question_embedding.reshape(1, -1)
     distances, indices = index.search(question_embedding, top_k)
-    results = [texts[i] for i in indices[0]]
-    return results
+    return [texts[i] for i in indices[0]]
 
