@@ -1,8 +1,15 @@
 import pandas as pd
+import numpy as np 
 import pandas_datareader.data as web
 import ta
 import warnings
 warnings.filterwarnings("ignore")
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
 def compute_technical_indicators(df):
     """
@@ -92,3 +99,12 @@ def fetch_fed_funds(starttime, endtime):
     fed_funds['Date'] = pd.to_datetime(fed_funds['Date'])
     fed_funds.sort_values('Date', inplace=True)
     return fed_funds
+
+
+def classify_news_sentiment(headline, content):
+    prompt = f'Classify this news for investor sentiment (Positive/Negative/Neutral): {headline} {content}'
+    response = client.chat.completions.create(
+        model='gpt-4', 
+        messages=[{'role':'user', 'content':prompt}]
+    )
+    return response['choices'][0]['message']['content'].strip()
