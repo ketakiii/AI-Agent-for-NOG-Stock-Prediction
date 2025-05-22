@@ -94,7 +94,7 @@ nog-stock-forecasting/
 │       └── rag_retrieval.py   
 ```
 
-## Repository Structure
+## High-Level Architecture
                       ┌───────────────────────┐
                       │ Yahoo Finance (2 yrs) │
                       └──────────┬────────────┘
@@ -109,11 +109,11 @@ nog-stock-forecasting/
                      │ LLM + News Retrieval Agent │
                      └────────────┬───────────────┘
                                   ▼
-             ┌─────────────────────────────────────────────────────┐
-             │ RAG: News Embeddings (CLIP/SBERT) + FAISS/Chroma DB │
-             └────────────────────┬────────────────────────────────┘
+        ┌─────────────────────────────────────────────────────┐
+        │ RAG: News Embeddings (CLIP/SBERT) + FAISS/Chroma DB │
+        └─────────────────────────┬───────────────────────────┘
                                   ▼
-             Recent, relevant news context about NOG or oil sector
+            Recent, relevant news context about NOG or oil sector
                                   ▼
                 LLM interprets context & prediction
                                   ▼
