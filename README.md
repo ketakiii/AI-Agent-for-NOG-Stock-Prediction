@@ -6,9 +6,9 @@ An end-to-end time series forecasting pipeline that predicts the stock price of 
 
 ## Why Analyze Northern Oil & Gas (NOG)?
 
-Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, specialising in non-operating interests in high-quality oil & gas assets. It presents a compelling forecasting challenge for several reasons:
+Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, specializing in non-operating interests in high-quality oil & gas assets. It presents a compelling forecasting challenge for several reasons:
 
-- **High Sensitivity to Macroeconomic Trends**: NOG's stock is closely tied to crude oil prices, interest rates, and global energy demand-making it ideal for studying the interplay between commodity markets and equities.
+- **High Sensitivity to Macroeconomic Trends**: NOG's stock is closely tied to crude oil prices, interest rates, and global energy demand—making it ideal for studying the interplay between commodity markets and equities.
 - **Energy Sector Volatility**: The energy sector is inherently cyclical and volatile, offering rich patterns for time series modeling and anomaly detection.
 - **Market Relevance**: As a mid-cap stock in a critical sector, NOG is a useful proxy for understanding broader market behavior in energy and commodities.
 - **Actionable Use Case**: Forecasting NOG prices has real-world use cases in portfolio allocation, algorithmic trading strategies, and hedging oil price exposure.
@@ -41,7 +41,7 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 
 ---
 
-## Modelling Approach
+## Modeling Approach
 
 - **Exploratory Analysis**: ACF/PACF plots, stationarity tests, rolling statistics.
 - **Feature Engineering**:
@@ -54,13 +54,11 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 - Hybrid comparisons against baselines
 
 ## Visualization
-Moving Averages + Volume heatmap  - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-1?publish=yes
+Tableau dashboard 1 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-1?publish=yes
 
-Candelstick Close Price Chart + Bollinger Volatility Bands - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-2?publish=yes
+Tableau dashboard 2 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-2?publish=yes
 
-Major Geopolitical/ Company Events impact on Stock Volume Traded - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-3?publish=yes
-
-Major Geopolitical/ Company Events Impact on Stock Volume Traded - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/Dashboard4?publish=yes
+Tableau dashboard 3 - https://public.tableau.com/app/profile/ketaki.kolhatkar/viz/NOG-stock-dashboard-1/NOG-dashboard-3?publish=yes
 
 ## Repository Structure
 ```bash
@@ -69,12 +67,16 @@ nog-stock-forecasting/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+│
 ├── notebooks/
 │   └── NOG_forecasting.ipynb    
+│
 ├── data/  
 │   └── NOG_2012-01-01_2025-04-27.csv                       
+|
 ├── saved_models/  
 │   └── xgb_model.pkl  
+|
 ├── src/
 │   ├── data
 │       ├── __init__.py
@@ -90,3 +92,29 @@ nog-stock-forecasting/
 │       ├── __init__.py
 │       └── llm_inference.py     
 │       └── rag_retrieval.py   
+```
+
+## Repository Structure
+                      ┌───────────────────────┐
+                      │ Yahoo Finance (2 yrs) │
+                      └──────────┬────────────┘
+                                 ▼
+                         Price/Volume Features
+                                 ▼
+                            XGBoost Model
+                                 ▼
+                        Price Forecast + Residual
+                                 ▼
+                     ┌────────────────────────────┐
+                     │ LLM + News Retrieval Agent │
+                     └────────────┬───────────────┘
+                                  ▼
+             ┌─────────────────────────────────────────────────────┐
+             │ RAG: News Embeddings (CLIP/SBERT) + FAISS/Chroma DB │
+             └────────────────────┬────────────────────────────────┘
+                                  ▼
+             Recent, relevant news context about NOG or oil sector
+                                  ▼
+                LLM interprets context & prediction
+                                  ▼
+             Generates explanation, risk insights, actions
