@@ -1,7 +1,7 @@
 import datetime
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
-from src.features.feature_engineering import compute_technical_indicators, macroeconomic_indicators, embed_news
+from src.features.feature_engineering import compute_technical_indicators, macroeconomic_indicators, classify_news_sentiment
 from src.data.news_ingest import run_news_data_pipeline
 import math
 import numpy as np
@@ -11,6 +11,8 @@ import ta
 import warnings
 warnings.filterwarnings("ignore")
 import yfinance as yf
+
+sentiment_map = {'Positive': 1, 'Neutral': 0, 'Negative': -1}
 
 def get_data_from_yahoo(ticker, startdate, enddate):
     """
@@ -71,9 +73,7 @@ def preprocess_data(main_df, macro_df):
     merged_data = pd.merge_asof(tech_data, macro_df, on='Date', direction='backward')
     merged_data.fillna(method='ffill', inplace=True)  # Forward fill any missing values
     merged_data.dropna(inplace=True)  # Drop any remaining NaN values
-    news_embed_df = embed_news()
-    stock_df = merged_data.merge(news_embed_df, on='date', how='left').fillna(0)
-    return stock_df
+    return merged_data
 
 def run_data_pipeline(ticker='NOG', csvflag=True):
     """
