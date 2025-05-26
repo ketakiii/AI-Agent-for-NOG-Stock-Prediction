@@ -95,26 +95,38 @@ nog-stock-forecasting/
 ```
 
 ## High-Level Architecture
-                      ┌───────────────────────┐
-                      │ Yahoo Finance (2 yrs) │
-                      └──────────┬────────────┘
-                                 ▼
-                         Price/Volume Features
-                                 ▼
-                            XGBoost Model
-                                 ▼
-                        Price Forecast + Residual
-                                 ▼
-                     ┌────────────────────────────┐
-                     │ LLM + News Retrieval Agent │
-                     └────────────┬───────────────┘
-                                  ▼
-        ┌─────────────────────────────────────────────────────┐
-        │ RAG: News Embeddings (CLIP/SBERT) + FAISS/Chroma DB │
-        └─────────────────────────┬───────────────────────────┘
-                                  ▼
-            Recent, relevant news context about NOG or oil sector
-                                  ▼
-                LLM interprets context & prediction
-                                  ▼
-             Generates explanation, risk insights, actions
+                  ┌───────────────────────┐
+                  │ Yahoo Finance (2 yrs) │
+                  └──────────┬────────────┘
+                             ▼
+                     Price/Volume Features
+                             ▼
+                        XGBoost Model
+                             ▼
+                    Price Forecast + Residual
+                             ▼
+                 ┌────────────────────────────┐
+                 │ LLM + News Retrieval Agent │
+                 └────────────┬───────────────┘
+                              ▼
+    ┌─────────────────────────────────────────────────────┐
+    │        RAG: News Embeddings (SBERT) + FAISS         │
+    └─────────────────────────┬───────────────────────────┘
+                              ▼
+        Recent, relevant news context about NOG or oil sector
+                              ▼
+             ┌───────────────────────────────────┐
+             │ LLM interprets context + forecast │
+             └─────────────────┬─────────────────┘
+                               ▼
+       ┌─────────────────────────────────────────────┐
+       │ Q-Learning Agent: Buy/Hold/Sell Decisions   │
+       └────────────────────────┬────────────────────┘
+                                ▼
+                  Agentic AI Output Layer
+             ┌────────────────────────────────┐
+             │  - Trade Action                │
+             │  - Reasoning Explanation       │
+             │  - Risk/Uncertainty Commentary │
+             └────────────────────────────────┘
+
