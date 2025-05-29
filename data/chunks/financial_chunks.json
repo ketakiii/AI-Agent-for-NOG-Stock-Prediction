@@ -1,0 +1,41 @@
+[
+    {
+    "text": "As of 2025-03-31, Northern Oil & Gas Inc. (NOG) reported the following financials:\n\n— Quarterly Financials —\n**Income Statement:**\n- Total revenue: $580.34M\n- Gross profit: $224.54M\n- Operating income: $229.28M\n- Net income: $138.98M\n- EBIT: $229.64M\n- EBITDA: $435.33M\n- SG&A expenses: $14.48M\n- Interest expense: $43.85M\n\n**Balance Sheet:**\n- Total assets: $5.67B\n- Current assets: $521.61M\n- Cash and equivalents: $33.58M\n- Long-term debt: $2.31B\n- Total liabilities: $3.27B\n- Shareholder equity: $2.40B\n- Shares outstanding: 99.99M",
+    
+    "metadata": {
+      "type": "financials",
+      "quarter": "Q1",
+      "year": 2025,
+      "date": "2025-03-31",
+      "ticker": "NOG",
+      "source": "combined",
+      "annual_metrics": {
+        "pe_ratio": 7.13,
+        "roe": 0.22,
+        "debt_to_equity": 1.02,
+        "price_to_book": 1.10,
+        "market_cap": 2659088384
+      }
+    }
+  }, 
+
+  {
+    "text": "As of 2025-03-31, Northern Oil & Gas Inc. (NOG) reported the following financials:\n\n— Quarterly Financials —\n**Income Statement:**\n- Total revenue: $580.34M\n- Gross profit: $224.54M\n- Operating income: $229.28M\n- Net income: $138.98M\n- EBIT: $229.64M\n- EBITDA: $435.33M\n- SG&A expenses: $14.48M\n- Interest expense: $43.85M\n\n**Balance Sheet:**\n- Total assets: $5.67B\n- Current assets: $521.61M\n- Cash and equivalents: $33.58M\n- Long-term debt: $2.31B\n- Total liabilities: $3.27B\n- Shareholder equity: $2.40B\n- Shares outstanding: 99.99M",
+    
+    "metadata": {
+      "type": "financials",
+      "quarter": "Q1",
+      "year": 2025,
+      "date": "2025-03-31",
+      "ticker": "NOG",
+      "source": "combined",
+      "annual_metrics": {
+        "pe_ratio": 7.13,
+        "roe": 0.22,
+        "debt_to_equity": 1.02,
+        "price_to_book": 1.10,
+        "market_cap": 2659088384
+      }
+    }
+  }, 
+]
