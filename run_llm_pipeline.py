@@ -42,7 +42,7 @@ def load_corpus(document):
 
 def create_faiss(documents):
     """
-    Creates faiss index from the documents. 
+    Creates a faiss index from the documents. 
     Args:
         documents: documents to index on. 
     Returns:
@@ -52,7 +52,7 @@ def create_faiss(documents):
 
 def build_qa_chain(faissindex):
     """
-    
+    Build the QA chain 
     """
     retriever = faissindex.as_retriever(search_kwargs={"k":5})
     llm = ChatOpenAI(temperature=0.2, model_name='gpt-4')
