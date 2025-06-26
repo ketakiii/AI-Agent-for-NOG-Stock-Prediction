@@ -27,7 +27,7 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 | **Tracking & CI/CD** | MLflow, Prometheus, Grafana, GitHub Actions |
 | **Visualization** | Real-time Tableau dashboard |
 
----
+
 
 ## Key Features
 
