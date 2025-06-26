@@ -113,7 +113,7 @@ nog-stock-forecasting/
     │        RAG: News Embeddings (SBERT) + FAISS         │
     └─────────────────────────┬───────────────────────────┘
                               ▼
-        Recent, relevant news context about NOG or oil sector
+        Recent, relevant news context about NOG or the oil sector
                               ▼
              ┌───────────────────────────────────┐
              │ LLM interprets context + forecast │
