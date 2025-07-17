@@ -2,13 +2,13 @@ import os
 import json
 from tqdm import tqdm
 from typing import List
-from langchain.vectorstores import FAISS
+from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
 
 class llm_pipeline:
 
-    def __init__(self, modelname: str='all-MiniLM-L6-v2', index_save_path: str='saved_models/vector_store/faiss_index'):
+    def __init__(self, modelname: str='all-MiniLM-L6-v2', index_save_path: str='data/chroma_db'):
         self.modelname = modelname
         self.index_save_path = index_save_path
         self.embedding_model = HuggingFaceEmbeddings(model_name=modelname)
@@ -25,12 +25,17 @@ class llm_pipeline:
         return documents
     
     def build_index(self, documents: List[Document]):
-        self.db = FAISS.from_documents(documents, self.embedding_model)
-        print('FAISS index created with {} documents'.format(len(documents)))
+        # Use ChromaDB instead of FAISS
+        self.db = Chroma.from_documents(
+            documents=documents, 
+            embedding=self.embedding_model,
+            persist_directory=self.index_save_path
+        )
+        print('ChromaDB index created with {} documents'.format(len(documents)))
     
     def save_index(self):
         if self.db:
-            self.db.save_local(self.index_save_path)
+            # ChromaDB automatically persists when created with persist_directory
             print(f'Index saved to {self.index_save_path}')
     
     def run(self, inputpath: str):
@@ -41,10 +46,10 @@ class llm_pipeline:
 if __name__=='__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description='Build and save vector db from FAISS index')
+    parser = argparse.ArgumentParser(description='Build and save vector db using ChromaDB')
     parser.add_argument('--input', type=str, required=True, help='Path to input JSONL file')
     parser.add_argument('--model', type=str, default='all-MiniLM-L6-v2', help='Hugging Face model for embeddings')
-    parser.add_argument('--output', type=str, default='saved_models/vector_store/faiss_index', help='Directory to save the FAISS index')
+    parser.add_argument('--output', type=str, default='data/chroma_db', help='Directory to save the ChromaDB index')
     args = parser.parse_args()
     os.makedirs(args.output, exist_ok=True)
     builder = llm_pipeline(modelname=args.model, index_save_path=args.output)

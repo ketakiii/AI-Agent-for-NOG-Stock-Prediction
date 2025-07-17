@@ -2,6 +2,7 @@
 
 from typing import Dict
 from sentence_transformers import SentenceTransformer, util
+import torch
 
 class QueryClassifier:
     def __init__(self):
@@ -46,9 +47,12 @@ class QueryClassifier:
         best_score = -1
 
         for intent, embeddings in self.intent_embeddings.items():
-            similarity = util.max_cos_sim(query_embedding, embeddings).item()
-            if similarity > best_score:
-                best_score = similarity
+            # Calculate cosine similarity between query and all templates for this intent
+            cos_scores = util.pytorch_cos_sim(query_embedding, embeddings)
+            max_similarity = torch.max(cos_scores).item()
+            
+            if max_similarity > best_score:
+                best_score = max_similarity
                 best_intent = intent
 
         return best_intent if best_score > 0.5 else "general"
