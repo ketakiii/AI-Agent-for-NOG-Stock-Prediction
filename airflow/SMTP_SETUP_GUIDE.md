@@ -1,5 +1,8 @@
 # 📧 SMTP Setup Guide for Airflow Email Notifications
 
+## 🚨 **SECURITY WARNING**
+**NEVER commit .env files containing passwords to git!** Always add them to .gitignore.
+
 ## 🎯 Overview
 This guide will help you configure Gmail SMTP for Airflow email notifications so you can receive prediction results via email.
 
@@ -124,10 +127,27 @@ When SMTP is configured correctly, you should see:
 
 ## 🔒 Security Notes
 
-- **Never commit** your `.env` file to version control
+### 🚨 **CRITICAL SECURITY WARNING**
+**NEVER commit your `.env` file to git!** It contains your Gmail app password.
+
+**What to do:**
+- ✅ **ALWAYS** add `.env` files to `.gitignore`
+- ✅ **NEVER** commit files containing passwords or API keys
+- ✅ **ROTATE** app passwords immediately if accidentally exposed
+- ❌ **NEVER** share .env files in code repositories
+- ❌ **NEVER** include real credentials in documentation
+
+**If you accidentally commit sensitive data:**
+1. **IMMEDIATELY** revoke the exposed app password in Google Account
+2. **GENERATE** a new app password
+3. **REMOVE** the file from git history using `git filter-branch`
+4. **FORCE PUSH** to update remote repository
+
+**Best Practices:**
 - **Use app passwords** instead of your main Gmail password
 - **Rotate app passwords** periodically for security
 - **Monitor** email sending for unusual activity
+- **Keep** `.env` files local only
 
 ---
 

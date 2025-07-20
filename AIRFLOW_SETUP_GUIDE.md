@@ -161,6 +161,29 @@ python test_simple.py
 
 ## 🚨 Important Notes
 
+### 🔒 **CRITICAL SECURITY WARNING - .env Files**
+**NEVER commit .env files to git!** They contain sensitive API keys and passwords.
+
+**What to do:**
+- ✅ **ALWAYS** add `.env` files to `.gitignore`
+- ✅ **NEVER** commit files containing API keys, passwords, or secrets
+- ✅ **ROTATE** API keys immediately if accidentally exposed
+- ❌ **NEVER** share .env files in code repositories
+- ❌ **NEVER** include real credentials in documentation
+
+**If you accidentally commit sensitive data:**
+1. **IMMEDIATELY** rotate all API keys and passwords
+2. **REMOVE** the file from git history using `git filter-branch`
+3. **FORCE PUSH** to update remote repository
+4. **CONTACT** service providers if keys were exposed
+
+**Example .env file structure (DO NOT commit real values):**
+```bash
+# airflow/.env - EXAMPLE ONLY (use real values locally)
+GMAIL_APP_PASSWORD=your_actual_16_char_password_here
+OPENAI_API_KEY=your_actual_openai_key_here
+```
+
 ### Yahoo Finance Rate Limits
 - Use `update_data: false` for frequent testing
 - Use `update_data: true` only for weekly production runs
