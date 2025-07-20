@@ -1,8 +1,10 @@
 import pandas as pd
+import numpy as np 
 import pandas_datareader.data as web
 import ta
 import warnings
 warnings.filterwarnings("ignore")
+# OpenAI client removed since classify_news_sentiment is not used
 
 def compute_technical_indicators(df):
     """
@@ -76,7 +78,7 @@ def fetch_oil_prices(starttime, endtime):
     oil_prices = web.DataReader('DCOILWTICO', 'fred', starttime, endtime)
     oil_prices.reset_index(inplace=True)
     oil_prices.rename(columns={'DATE': 'Date', 'DCOILWTICO': 'Crude_Oil'}, inplace=True)
-    oil_prices['Date'] = pd.to_datetime(oil_prices['Date'])
+    oil_prices['Date'] = pd.to_datetime(oil_prices['Date'], format='mixed')
     oil_prices.sort_values('Date', inplace=True)
     return oil_prices
 
@@ -89,6 +91,8 @@ def fetch_fed_funds(starttime, endtime):
     fed_funds = web.DataReader('FEDFUNDS', 'fred', starttime, endtime)
     fed_funds.reset_index(inplace=True)
     fed_funds.rename(columns={'DATE': 'Date', 'FEDFUNDS': 'Fed_Funds_Rate'}, inplace=True)
-    fed_funds['Date'] = pd.to_datetime(fed_funds['Date'])
+    fed_funds['Date'] = pd.to_datetime(fed_funds['Date'], format='mixed')
     fed_funds.sort_values('Date', inplace=True)
     return fed_funds
+
+
