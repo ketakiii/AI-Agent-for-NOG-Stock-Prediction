@@ -4,6 +4,7 @@ import pandas_datareader.data as web
 import ta
 import warnings
 warnings.filterwarnings("ignore")
+# OpenAI client removed since classify_news_sentiment is not used
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -83,7 +84,7 @@ def fetch_oil_prices(starttime, endtime):
     oil_prices = web.DataReader('DCOILWTICO', 'fred', starttime, endtime)
     oil_prices.reset_index(inplace=True)
     oil_prices.rename(columns={'DATE': 'Date', 'DCOILWTICO': 'Crude_Oil'}, inplace=True)
-    oil_prices['Date'] = pd.to_datetime(oil_prices['Date'])
+    oil_prices['Date'] = pd.to_datetime(oil_prices['Date'], format='mixed')
     oil_prices.sort_values('Date', inplace=True)
     return oil_prices
 
@@ -96,15 +97,8 @@ def fetch_fed_funds(starttime, endtime):
     fed_funds = web.DataReader('FEDFUNDS', 'fred', starttime, endtime)
     fed_funds.reset_index(inplace=True)
     fed_funds.rename(columns={'DATE': 'Date', 'FEDFUNDS': 'Fed_Funds_Rate'}, inplace=True)
-    fed_funds['Date'] = pd.to_datetime(fed_funds['Date'])
+    fed_funds['Date'] = pd.to_datetime(fed_funds['Date'], format='mixed')
     fed_funds.sort_values('Date', inplace=True)
     return fed_funds
 
 
-def classify_news_sentiment(headline, content):
-    prompt = f'Classify this news for investor sentiment (Positive/Negative/Neutral): {headline} {content}'
-    response = client.chat.completions.create(
-        model='gpt-4', 
-        messages=[{'role':'user', 'content':prompt}]
-    )
-    return response['choices'][0]['message']['content'].strip()

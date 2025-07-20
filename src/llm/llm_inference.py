@@ -29,8 +29,7 @@ def generate_answers(question, context_texts):
         max_tokens=256,
         temperature=0.2
     )
-    print(response.choices[0].message.content)
-    # return response.choices[0].message['content']
+    return response.choices[0].message.content
 
 if __name__=='__main__':
     question = "What is the current forecast for Northern Oil & Gas?"

@@ -1,7 +1,7 @@
 import datetime
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
-from src.features.feature_engineering import compute_technical_indicators, macroeconomic_indicators, classify_news_sentiment
+from src.features.feature_engineering import compute_technical_indicators, macroeconomic_indicators
 from src.data.news_ingest import run_news_data_pipeline
 import math
 import numpy as np
@@ -56,8 +56,11 @@ def get_data_from_csv(filepath, startdate, enddate):
     """
     df = pd.read_csv(filepath)
 
-    df['Date'] = pd.to_datetime(df['Date'])
-    df = df[(df['Date'] >= startdate) & (df['Date'] <= enddate)].reset_index(drop=True)
+    df['Date'] = pd.to_datetime(df['Date'], format='mixed')
+    # Convert startdate and enddate to datetime for comparison
+    startdate_dt = pd.to_datetime(startdate)
+    enddate_dt = pd.to_datetime(enddate)
+    df = df[(df['Date'] >= startdate_dt) & (df['Date'] <= enddate_dt)].reset_index(drop=True)
     df = df.dropna().reset_index(drop=True)
     return df
 
@@ -67,8 +70,8 @@ def preprocess_data(main_df, macro_df):
     """
     # data = get_data_from_csv(filepath, starttime, endtime)
     tech_data = compute_technical_indicators(main_df).dropna()
-    tech_data['Date'] = pd.to_datetime(tech_data['Date'])
-    macro_df['Date'] = pd.to_datetime(macro_df['Date'])
+    tech_data['Date'] = pd.to_datetime(tech_data['Date'], format='mixed')
+    macro_df['Date'] = pd.to_datetime(macro_df['Date'], format='mixed')
     # Merge the two dataframes on the 'Date' column
     merged_data = pd.merge_asof(tech_data, macro_df, on='Date', direction='backward')
     merged_data.fillna(method='ffill', inplace=True)  # Forward fill any missing values
@@ -86,19 +89,19 @@ def run_data_pipeline(ticker='NOG', csvflag=True):
         pd.DataFrame: Preprocessed data with technical and macroeconomic indicators.
     """
     # fetch stock data
-    data = pd.read_csv('data/NOG.csv')
+    data = pd.read_csv('/opt/airflow/project/data/NOG.csv')
     run_news_data_pipeline()
     if csvflag:
         startdate = '2023-04-27'
-        enddate = datetime.datetime.strptime(data['Date'].iloc[-1], '%Y-%m-%d')
-        stock_df = get_data_from_csv('data/NOG.csv', startdate, enddate)
+        enddate = pd.to_datetime(data['Date'].iloc[-1]).date()
+        stock_df = get_data_from_csv('/opt/airflow/project/data/NOG.csv', startdate, enddate)
     else:
         today = datetime.date.today()
-        startdate = (datetime.datetime.strptime(data['Date'].iloc[-1], '%Y-%m-%d') + timedelta(days=1)).date()
+        startdate = (pd.to_datetime(data['Date'].iloc[-1]) + timedelta(days=1)).date()
         enddate = today
         df = get_data_from_yahoo(ticker, startdate, enddate)
         stock_df = pd.concat([data, df])
-        stock_df.to_csv('data/NOG.csv', index=False, encoding='utf-8-sig', sep=',', columns=['Date','Close','High','Low','Open','Volume'])
+        stock_df.to_csv('/opt/airflow/project/data/NOG.csv', index=False, encoding='utf-8-sig', sep=',', columns=['Date','Close','High','Low','Open','Volume'])
     macro_df = macroeconomic_indicators(startdate, enddate)
     processed_data = preprocess_data(stock_df, macro_df)
     return processed_data
