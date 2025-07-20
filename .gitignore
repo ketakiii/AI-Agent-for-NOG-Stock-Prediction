@@ -1,28 +1,8 @@
-# Environment variables
-.env
-.env.local
-.env.*.local
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
 
-# API Keys and Secrets
-*.key
-*.pem
-*.p12
-
-# Logs
-*.log
-
-# Cache
-__pycache__/
-*.pyc
-
-# Virtual environments
-nog_env/
-venv/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
+# MacOS + Linux + Windows
 .DS_Store
-Thumbs.db
+
+# Pytest cache
+.pytest_cache/.DS_Store
