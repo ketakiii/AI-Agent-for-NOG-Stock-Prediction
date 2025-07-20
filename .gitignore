@@ -1,0 +1,28 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# API Keys and Secrets
+*.key
+*.pem
+*.p12
+
+# Logs
+*.log
+
+# Cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+nog_env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
