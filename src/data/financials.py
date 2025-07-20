@@ -232,5 +232,3 @@ def save_financial_chunks(chunks: List[Dict]):
 if __name__ == '__main__':
     chunks = create_financial_chunks()
     save_financial_chunks(chunks)
-
-

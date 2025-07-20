@@ -5,6 +5,12 @@ import ta
 import warnings
 warnings.filterwarnings("ignore")
 # OpenAI client removed since classify_news_sentiment is not used
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
 def compute_technical_indicators(df):
     """

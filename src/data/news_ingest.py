@@ -90,7 +90,6 @@ def fetch_nog_news(period: str = '2y', delay: float = 1.0) -> pd.DataFrame:
         pd.DataFrame: DataFrame containing deduplicated news articles with enhanced content.
     """
     gnews = GNews(language='en', country='US', period=period, max_results=100)
-    
     for query in queries:
         print(f"[INFO] Fetching news for query: '{query}'")
         try:
