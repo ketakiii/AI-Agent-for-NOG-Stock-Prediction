@@ -1,6 +1,9 @@
 from openai import OpenAI
 import os 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 from dotenv import load_dotenv
+import warnings
+warnings.filterwarnings('ignore')
 
 api_key = os.getenv("OPENAI_API_KEY")
 
@@ -21,7 +24,7 @@ def generate_answers(question, context_texts):
     context = '\n\n'.join(context_texts)
     prompt = f'Answer the question based on the context below: \n{context}\n\nQuestion: {question}\nAnswer:'
     response = client.chat.completions.create(
-        model='gpt-4o-mini',
+        model='gpt-4o',
         messages=[{'role':'user', 'content':prompt}], 
         max_tokens=256,
         temperature=0.2
