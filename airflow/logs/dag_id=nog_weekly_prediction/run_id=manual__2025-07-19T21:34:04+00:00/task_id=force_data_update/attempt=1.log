@@ -1,0 +1,62 @@
+[2025-07-19T21:34:09.464+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-19T21:34:09.657+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_weekly_prediction.force_data_update manual__2025-07-19T21:34:04+00:00 [queued]>
+[2025-07-19T21:34:09.702+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_weekly_prediction.force_data_update manual__2025-07-19T21:34:04+00:00 [queued]>
+[2025-07-19T21:34:09.704+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-19T21:34:09.735+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): force_data_update> on 2025-07-19 21:34:04+00:00
+[2025-07-19T21:34:09.829+0000] {standard_task_runner.py:63} INFO - Started process 336 to run task
+[2025-07-19T21:34:09.841+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_weekly_prediction', 'force_data_update', 'manual__2025-07-19T21:34:04+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/nog_weekly_prediction_dag.py', '--cfg-path', '/tmp/tmpwzyd7y9u']
+[2025-07-19T21:34:09.854+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask force_data_update
+[2025-07-19T21:34:10.252+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_weekly_prediction.force_data_update manual__2025-07-19T21:34:04+00:00 [running]> on host 4f96241099ed
+[2025-07-19T21:34:10.410+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_weekly_prediction' AIRFLOW_CTX_TASK_ID='force_data_update' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T21:34:04+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-19T21:34:04+00:00'
+[2025-07-19T21:34:10.415+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-19T21:34:10.483+0000] {nog_weekly_prediction_dag.py:85} INFO - 🔄 Forcing data update...
+[2025-07-19T21:34:10.484+0000] {weekly_predict.py:336} INFO - Starting weekly prediction pipeline...
+[2025-07-19T21:34:10.485+0000] {weekly_predict.py:112} INFO - Fetching data (update_csv=True)...
+[2025-07-19T21:34:10.607+0000] {logging_mixin.py:188} INFO - [INFO] Loaded 501 existing news articles
+[2025-07-19T21:34:10.608+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas'
+[2025-07-19T21:34:45.377+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG stock'
+[2025-07-19T21:34:55.359+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas earnings'
+[2025-07-19T21:35:18.596+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil & Gas Inc'
+[2025-07-19T21:36:24.252+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q1 results'
+[2025-07-19T21:36:25.615+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q2 results'
+[2025-07-19T21:36:27.003+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q3 results'
+[2025-07-19T21:36:28.576+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q4 results'
+[2025-07-19T21:36:30.007+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG quarterly report'
+[2025-07-19T21:36:34.582+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas acquisition'
+[2025-07-19T21:36:42.698+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG financial results'
+[2025-07-19T21:36:44.881+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas dividend'
+[2025-07-19T21:37:00.009+0000] {logging_mixin.py:188} INFO - [INFO] Fetched 171 new news articles
+[2025-07-19T21:37:00.081+0000] {logging_mixin.py:188} INFO - [INFO] Saved 501 total news articles to data/NOG_news_2years.csv
+[2025-07-19T21:37:00.136+0000] {logging_mixin.py:188} INFO - [INFO] Created 501 enhanced news chunks
+[2025-07-19T21:37:00.992+0000] {logging_mixin.py:188} WARNING - [*********************100%***********************]  1 of 1 completed
+[2025-07-19T21:37:02.222+0000] {weekly_predict.py:116} INFO - Successfully fetched data with shape: (0, 19)
+[2025-07-19T21:37:02.226+0000] {weekly_predict.py:157} INFO - Training weekly model...
+[2025-07-19T21:37:02.243+0000] {weekly_predict.py:377} ERROR - Pipeline failed: With n_samples=0, test_size=0.2 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.
+[2025-07-19T21:37:02.244+0000] {nog_weekly_prediction_dag.py:99} ERROR - ❌ Forced update failed: With n_samples=0, test_size=0.2 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.
+[2025-07-19T21:37:02.245+0000] {nog_weekly_prediction_dag.py:103} ERROR - ❌ Error in forced data update: Forced update failed: With n_samples=0, test_size=0.2 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.
+[2025-07-19T21:37:02.248+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-19T21:37:02.262+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/nog_weekly_prediction_dag.py", line 100, in force_data_update
+    raise Exception(error_msg)
+Exception: Forced update failed: With n_samples=0, test_size=0.2 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.
+[2025-07-19T21:37:02.305+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=nog_weekly_prediction, task_id=force_data_update, run_id=manual__2025-07-19T21:34:04+00:00, execution_date=20250719T213404, start_date=20250719T213409, end_date=20250719T213702
+[2025-07-19T21:37:02.337+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 17 for task force_data_update (Forced update failed: With n_samples=0, test_size=0.2 and train_size=None, the resulting train set will be empty. Adjust any of the aforementioned parameters.; 336)
+[2025-07-19T21:37:02.446+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-19T21:37:02.535+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-19T21:37:02.539+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,52 @@
+[2025-07-19T21:34:09.448+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-19T21:34:09.657+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_weekly_prediction.run_weekly_prediction manual__2025-07-19T21:34:04+00:00 [queued]>
+[2025-07-19T21:34:09.702+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_weekly_prediction.run_weekly_prediction manual__2025-07-19T21:34:04+00:00 [queued]>
+[2025-07-19T21:34:09.703+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-19T21:34:09.734+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_weekly_prediction> on 2025-07-19 21:34:04+00:00
+[2025-07-19T21:34:09.827+0000] {standard_task_runner.py:63} INFO - Started process 335 to run task
+[2025-07-19T21:34:09.838+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_weekly_prediction', 'run_weekly_prediction', 'manual__2025-07-19T21:34:04+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/nog_weekly_prediction_dag.py', '--cfg-path', '/tmp/tmptu0u0jub']
+[2025-07-19T21:34:09.860+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask run_weekly_prediction
+[2025-07-19T21:34:10.253+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_weekly_prediction.run_weekly_prediction manual__2025-07-19T21:34:04+00:00 [running]> on host 4f96241099ed
+[2025-07-19T21:34:10.430+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_weekly_prediction' AIRFLOW_CTX_TASK_ID='run_weekly_prediction' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T21:34:04+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-19T21:34:04+00:00'
+[2025-07-19T21:34:10.434+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-19T21:34:10.501+0000] {nog_weekly_prediction_dag.py:43} INFO - Starting weekly NOG prediction pipeline...
+[2025-07-19T21:34:10.502+0000] {weekly_predict.py:336} INFO - Starting weekly prediction pipeline...
+[2025-07-19T21:34:10.502+0000] {weekly_predict.py:112} INFO - Fetching data (update_csv=False)...
+[2025-07-19T21:34:10.613+0000] {logging_mixin.py:188} INFO - [INFO] Loaded 501 existing news articles
+[2025-07-19T21:34:10.614+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas'
+[2025-07-19T21:34:45.285+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG stock'
+[2025-07-19T21:34:55.374+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas earnings'
+[2025-07-19T21:35:18.518+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil & Gas Inc'
+[2025-07-19T21:36:23.898+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q1 results'
+[2025-07-19T21:36:25.424+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q2 results'
+[2025-07-19T21:36:27.023+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q3 results'
+[2025-07-19T21:36:28.576+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q4 results'
+[2025-07-19T21:36:30.010+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG quarterly report'
+[2025-07-19T21:36:34.937+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas acquisition'
+[2025-07-19T21:36:42.460+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG financial results'
+[2025-07-19T21:36:44.880+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas dividend'
+[2025-07-19T21:36:59.880+0000] {logging_mixin.py:188} INFO - [INFO] Fetched 171 new news articles
+[2025-07-19T21:36:59.959+0000] {logging_mixin.py:188} INFO - [INFO] Saved 501 total news articles to data/NOG_news_2years.csv
+[2025-07-19T21:37:00.015+0000] {logging_mixin.py:188} INFO - [INFO] Created 501 enhanced news chunks
+[2025-07-19T21:37:02.219+0000] {weekly_predict.py:116} INFO - Successfully fetched data with shape: (512, 19)
+[2025-07-19T21:37:02.226+0000] {weekly_predict.py:157} INFO - Training weekly model...
+[2025-07-19T21:37:04.803+0000] {weekly_predict.py:199} INFO - Model training completed. R²: -1.0137
+[2025-07-19T21:37:04.836+0000] {weekly_predict.py:206} INFO - Model saved to saved_models/xgb_model.pkl
+[2025-07-19T21:37:04.838+0000] {weekly_predict.py:320} INFO - Performance data saved to data/model_performance.json
+[2025-07-19T21:37:04.839+0000] {weekly_predict.py:235} INFO - Generating predictions for next 5 days...
+[2025-07-19T21:37:04.853+0000] {weekly_predict.py:296} INFO - Predictions saved to data/weekly_predictions.json
+[2025-07-19T21:37:04.854+0000] {weekly_predict.py:373} INFO - Weekly prediction pipeline completed successfully
+[2025-07-19T21:37:04.855+0000] {nog_weekly_prediction_dag.py:55} INFO - ✅ Weekly prediction pipeline completed successfully
+[2025-07-19T21:37:04.856+0000] {nog_weekly_prediction_dag.py:59} INFO - Model R² Score: -1.0136510323310786
+[2025-07-19T21:37:04.856+0000] {nog_weekly_prediction_dag.py:60} INFO - Data Points Used: 512
+[2025-07-19T21:37:04.857+0000] {nog_weekly_prediction_dag.py:65} INFO - Prediction for 2025-07-21: $30.35
+[2025-07-19T21:37:04.857+0000] {nog_weekly_prediction_dag.py:65} INFO - Prediction for 2025-07-21: $30.35
+[2025-07-19T21:37:04.858+0000] {nog_weekly_prediction_dag.py:65} INFO - Prediction for 2025-07-22: $30.35
+[2025-07-19T21:37:04.858+0000] {nog_weekly_prediction_dag.py:65} INFO - Prediction for 2025-07-23: $30.35
+[2025-07-19T21:37:04.858+0000] {nog_weekly_prediction_dag.py:65} INFO - Prediction for 2025-07-24: $30.35
+[2025-07-19T21:37:04.911+0000] {python.py:237} INFO - Done. Returned value was: {'status': 'success', 'timestamp': '2025-07-19T21:37:04.853919', 'predictions': [{'date': '2025-07-21', 'predicted_price': 30.35184097290039, 'prediction_date': '2025-07-19', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.744804153442384, 'upper': 30.958877792358397, 'confidence_level': 0.95}}, {'date': '2025-07-21', 'predicted_price': 30.35184097290039, 'prediction_date': '2025-07-19', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.744804153442384, 'upper': 30.958877792358397, 'confidence_level': 0.95}}, {'date': '2025-07-22', 'predicted_price': 30.35184097290039, 'prediction_date': '2025-07-19', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.744804153442384, 'upper': 30.958877792358397, 'confidence_level': 0.95}}, {'date': '2025-07-23', 'predicted_price': 30.35184097290039, 'prediction_date': '2025-07-19', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.744804153442384, 'upper': 30.958877792358397, 'confidence_level': 0.95}}, {'date': '2025-07-24', 'predicted_price': 30.35184097290039, 'prediction_date': '2025-07-19', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.744804153442384, 'upper': 30.958877792358397, 'confidence_level': 0.95}}], 'model_metrics': {'MSE': 14.199068058472902, 'MAE': 2.83491895731213, 'R2': -1.0136510323310786}, 'data_points': 512, 'data_updated': False}
+[2025-07-19T21:37:04.913+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-19T21:37:04.937+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nog_weekly_prediction, task_id=run_weekly_prediction, run_id=manual__2025-07-19T21:34:04+00:00, execution_date=20250719T213404, start_date=20250719T213409, end_date=20250719T213704
+[2025-07-19T21:37:05.009+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-19T21:37:05.036+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-19T21:37:05.037+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

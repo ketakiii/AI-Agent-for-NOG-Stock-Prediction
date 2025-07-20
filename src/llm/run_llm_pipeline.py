@@ -1,77 +1,56 @@
-from sentence_transformers import SentenceTransformer
-from langchain.vectorstores import FAISS
+import os
+import json
+from tqdm import tqdm
+from typing import List
+from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import RetrievalQA
-from src.llm.rag_retrieval import build_faiss_index, search_index
-from src.llm.llm_inference import generate_answers
-import pandas as pd 
-import json
-import warnings
-warnings.filterwarnings('ignore')
 
-embeddingmodel = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2')
+class llm_pipeline:
 
-def run_rag_pipeline(question, documents, fundamentals_summary):
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-    embeddings = model.encode(documents, show_progress_bar=False)
-    index = build_faiss_index(embeddings)
-    question_embedding = model.encode([question])[0]
-    context = search_index(question_embedding, index, documents, top_k=5)
-    fullcontext = [fundamentals_summary] + context 
-    return generate_answers(question, fullcontext)
+    def __init__(self, modelname: str='all-MiniLM-L6-v2', index_save_path: str='data/chroma_db'):
+        self.modelname = modelname
+        self.index_save_path = index_save_path
+        self.embedding_model = HuggingFaceEmbeddings(model_name=modelname)
+        self.db = None
 
-def load_corpus(document):
-    """
-    Loads the JSONL corpus and converts to langChain document format.
-    Args:
-        document: jsonl file path.
-    Returns:
-        corpus: langchain format document. 
-    """
-    corpus = []
-    with open(document, 'r') as f:
-        for line in f:
-            item = json.loads(line)
-            corpus.append(Document(
-                page_content=item['text'],
-                metadata=item['metadata']
-            ))
-    return corpus
-
-def create_faiss(documents):
-    """
-    Creates faiss index from the documents. 
-    Args:
-        documents: documents to index on. 
-    Returns:
-        faiss index 
-    """
-    return FAISS.from_documents(documents, embeddingmodel)
-
-def build_qa_chain(faissindex):
-    """
+    def load_documents_from_jsonl(self, jsonlpath: str) -> List[Document]:
+        documents = []
+        with open(jsonlpath, 'r') as file:
+            for line in tqdm(file, desc=f'Loading {jsonlpath}'):
+                item = json.loads(line)
+                metadata = item.get('metadata', {})
+                doc = Document(page_content=item['text'], metadata=metadata)
+                documents.append(doc)
+        return documents
     
-    """
-    retriever = faissindex.as_retriever(search_kwargs={"k":5})
-    llm = ChatOpenAI(temperature=0.2, model_name='gpt-4')
-    return RetrievalQA.from_chain_type(
-        llm=llm,
-        retriever=retriever,
-        return_source_documents=True
-    )
-
-def answer_questions(question, jsonlpath):
-    documents = load_corpus(jsonlpath)
-    faissindex = create_faiss(documents)
-    qa_chain = build_qa_chain(faissindex)
-    result = qa_chain(question)
-    return result['result'], result['source_documents']
+    def build_index(self, documents: List[Document]):
+        # Use ChromaDB instead of FAISS
+        self.db = Chroma.from_documents(
+            documents=documents, 
+            embedding=self.embedding_model,
+            persist_directory=self.index_save_path
+        )
+        print('ChromaDB index created with {} documents'.format(len(documents)))
+    
+    def save_index(self):
+        if self.db:
+            # ChromaDB automatically persists when created with persist_directory
+            print(f'Index saved to {self.index_save_path}')
+    
+    def run(self, inputpath: str):
+        documents = self.load_documents_from_jsonl(inputpath)
+        self.build_index(documents)
+        self.save_index()
 
 if __name__=='__main__':
-    question = 'What is the latest P/E ratio of the company'
-    jsonlpath = 'data/chunks/corpus.jsonl'
-    answer, sources = answer_questions(question, jsonlpath)
-    print("Answer:\n", answer)
-    print("\nSources:\n", [doc.metadata for doc in sources])
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Build and save vector db using ChromaDB')
+    parser.add_argument('--input', type=str, required=True, help='Path to input JSONL file')
+    parser.add_argument('--model', type=str, default='all-MiniLM-L6-v2', help='Hugging Face model for embeddings')
+    parser.add_argument('--output', type=str, default='data/chroma_db', help='Directory to save the ChromaDB index')
+    args = parser.parse_args()
+    os.makedirs(args.output, exist_ok=True)
+    builder = llm_pipeline(modelname=args.model, index_save_path=args.output)
+    builder.run(args.input)
