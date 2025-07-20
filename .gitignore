@@ -6,3 +6,9 @@
 
 # Pytest cache
 .pytest_cache/.DS_Store
+
+# Virtual environments
+nog_env/
+venv/
+env/
+
