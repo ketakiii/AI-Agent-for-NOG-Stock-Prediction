@@ -1,10 +1,10 @@
 # Airflow Setup and Usage Guide
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Start Docker Desktop
 - Open Docker Desktop on your Mac
-- Wait for it to fully start (green icon in menu bar)
+- Wait for it to start (green icon in menu bar) fully
 
 ### 2. Start Airflow
 ```bash
@@ -44,7 +44,7 @@ docker-compose ps
 docker-compose logs scheduler | grep "nog_weekly_prediction"
 ```
 
-## 🎯 Running Your DAGs
+## Running Your DAGs
 
 ### **Production Pipeline** (`nog_production_pipeline`)
 **Purpose**: Weekly production runs with smart fallback
@@ -75,7 +75,7 @@ docker-compose exec webserver airflow dags trigger nog_testing_pipeline
 docker-compose exec webserver airflow dags trigger nog_production_pipeline
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### DAG Not Visible
 ```bash
@@ -129,18 +129,18 @@ airflow/
 3. Click "Trigger Task"
 4. Only updates data, doesn't run predictions
 
-## 🔄 DAG Schedule
+## DAG Schedule
 - **Schedule**: Every Monday at 9 AM (`0 9 * * 1`)
 - **Manual trigger**: Available anytime
 - **Configuration**: JSON parameters for data update control
 
-## 📊 Monitoring
+## Monitoring
 - **DAG Status**: Green = success, Red = failed
 - **Task Logs**: Click on individual tasks to see detailed logs
 - **XCom**: Stores results between tasks
 - **Email Notifications**: Sent on completion (configure email in DAG)
 
-## 🛠️ Development Workflow
+##  Development Workflow
 
 ### 1. Make Code Changes
 - Edit your Python files in the main project
@@ -159,7 +159,7 @@ python test_simple.py
 - No deployment needed - changes are live immediately
 - Just restart Airflow if you modify DAG structure
 
-## 🚨 Important Notes
+## Important Notes
 
 ### Yahoo Finance Rate Limits
 - Use `update_data: false` for frequent testing
@@ -175,14 +175,14 @@ python test_simple.py
 - Update email address in DAG file
 - Currently set to: `your-email@example.com`
 
-## 🎉 Success Indicators
-- ✅ DAG visible in Airflow UI
-- ✅ Tasks complete with green status
-- ✅ Predictions generated and saved
-- ✅ Email notification received
-- ✅ Logs show successful execution
+## Success Indicators
+- DAG visible in Airflow UI
+- Tasks complete with green status
+- Predictions generated and saved
+- Email notification received
+- Logs show successful execution
 
-## 📞 Quick Reference
+## Quick Reference
 
 | Action | Command |
 |--------|---------|
@@ -190,7 +190,7 @@ python test_simple.py
 | Stop Airflow | `docker-compose down` |
 | Check status | `docker-compose ps` |
 | View logs | `docker-compose logs scheduler` |
-| Test import | `docker-compose exec webserver python -c "import sys; sys.path.append('/opt/airflow/project'); from src.models.weekly_predict import WeeklyPredictionPipeline; print('✅ Import successful')"` |
+| Test import | `docker-compose exec webserver python -c "import sys; sys.path.append('/opt/airflow/project'); from src.models.weekly_predict import WeeklyPredictionPipeline; print('Import successful')"` |
 | **Test Pipeline** (existing data) | `docker-compose exec webserver airflow dags trigger nog_testing_pipeline` |
 | **Production Pipeline** (smart fallback) | `docker-compose exec webserver airflow dags trigger nog_production_pipeline` |
 
