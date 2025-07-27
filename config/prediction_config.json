@@ -1,0 +1,86 @@
+{
+  "pipeline": {
+    "name": "nog_weekly_prediction",
+    "description": "Weekly NOG stock price prediction using XGBoost",
+    "version": "1.0.0"
+  },
+  "data": {
+    "ticker": "NOG",
+    "update_csv": true,
+    "data_source": "yahoo_finance",
+    "start_date": "2023-04-27",
+    "feature_columns": [
+      "ma_10",
+      "m_50", 
+      "daily_change",
+      "volatility_10",
+      "RSI_14",
+      "bb_high",
+      "bb_low",
+      "Momentum_10",
+      "VWAP",
+      "Crude_Oil",
+      "Fed_Funds_Rate"
+    ]
+  },
+  "model": {
+    "type": "xgboost",
+    "parameters": {
+      "objective": "reg:squarederror",
+      "n_estimators": 200,
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "random_state": 42,
+      "early_stopping_rounds": 20
+    },
+    "training": {
+      "test_size": 0.2,
+      "shuffle": false,
+      "random_state": 42
+    }
+  },
+  "prediction": {
+    "days_ahead": 5,
+    "confidence_level": 0.95,
+    "price_range": {
+      "min": 10.0,
+      "max": 100.0
+    },
+    "volatility_threshold": 5.0
+  },
+  "paths": {
+    "model_path": "saved_models/xgb_model.pkl",
+    "predictions_path": "data/weekly_predictions.json",
+    "performance_path": "data/model_performance.json",
+    "reports_path": "data/weekly_reports/",
+    "logs_path": "logs/prediction/"
+  },
+  "airflow": {
+    "schedule": "0 9 * * 1",
+    "timezone": "UTC",
+    "retries": 1,
+    "retry_delay_minutes": 5,
+    "email_notifications": true,
+    "email_recipients": ["your-email@example.com"]
+  },
+  "monitoring": {
+    "metrics": ["R2", "MAE", "MSE"],
+    "alerts": {
+      "r2_threshold": 0.7,
+      "mae_threshold": 2.0,
+      "prediction_validation": true
+    },
+    "retention": {
+      "performance_history_weeks": 52,
+      "prediction_history_weeks": 12
+    }
+  },
+  "validation": {
+    "price_range_check": true,
+    "negative_price_check": true,
+    "volatility_check": true,
+    "confidence_interval_check": true
+  }
+} 
