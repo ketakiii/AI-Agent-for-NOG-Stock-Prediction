@@ -41,7 +41,7 @@ Northern Oil & Gas (NYSE: NOG) is a key player in the U.S. shale oil industry, s
 
 ---
 
-## Modeling Approach
+## Modelling Approach
 
 - **Exploratory Analysis**: ACF/PACF plots, stationarity tests, rolling statistics.
 - **Feature Engineering**:
