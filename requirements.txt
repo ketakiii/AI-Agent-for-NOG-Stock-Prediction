@@ -7,7 +7,7 @@ yfinance
 matplotlib
 mlflow
 psycopg2-binary
-sec-edgar-downloader 
+# sec-edgar-downloader 
 beautifulsoup4
 lxml
 gnews
@@ -18,3 +18,4 @@ langchain-community
 openai
 python-dotenv
 tqdm
+chromadb

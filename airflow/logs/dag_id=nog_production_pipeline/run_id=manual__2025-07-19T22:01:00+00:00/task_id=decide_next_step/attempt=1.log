@@ -1,0 +1,22 @@
+[2025-07-27T16:36:45.453+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-27T16:36:45.577+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_production_pipeline.decide_next_step manual__2025-07-19T22:01:00+00:00 [queued]>
+[2025-07-27T16:36:45.646+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_production_pipeline.decide_next_step manual__2025-07-19T22:01:00+00:00 [queued]>
+[2025-07-27T16:36:45.648+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-27T16:36:45.697+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): decide_next_step> on 2025-07-19 22:01:00+00:00
+[2025-07-27T16:36:45.789+0000] {standard_task_runner.py:63} INFO - Started process 247 to run task
+[2025-07-27T16:36:45.836+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_production_pipeline', 'decide_next_step', 'manual__2025-07-19T22:01:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/nog_production_pipeline_dag.py', '--cfg-path', '/tmp/tmp2tpezemw']
+[2025-07-27T16:36:45.860+0000] {standard_task_runner.py:91} INFO - Job 38: Subtask decide_next_step
+[2025-07-27T16:36:46.174+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_production_pipeline.decide_next_step manual__2025-07-19T22:01:00+00:00 [running]> on host 0899e77ef937
+[2025-07-27T16:36:46.921+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_production_pipeline' AIRFLOW_CTX_TASK_ID='decide_next_step' AIRFLOW_CTX_EXECUTION_DATE='2025-07-19T22:01:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-19T22:01:00+00:00'
+[2025-07-27T16:36:46.957+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-27T16:36:47.103+0000] {baseoperator.py:399} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2025-07-27T16:36:47.233+0000] {nog_production_pipeline_dag.py:105} INFO - ⚠️ Force data update failed, proceeding to run weekly predictions
+[2025-07-27T16:36:47.235+0000] {python.py:237} INFO - Done. Returned value was: run_weekly_predictions
+[2025-07-27T16:36:47.236+0000] {branch.py:36} INFO - Branch into run_weekly_predictions
+[2025-07-27T16:36:47.237+0000] {skipmixin.py:178} INFO - Following branch run_weekly_predictions
+[2025-07-27T16:36:47.327+0000] {skipmixin.py:246} INFO - Skipping tasks []
+[2025-07-27T16:36:47.372+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-27T16:36:47.461+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nog_production_pipeline, task_id=decide_next_step, run_id=manual__2025-07-19T22:01:00+00:00, execution_date=20250719T220100, start_date=20250727T163645, end_date=20250727T163647
+[2025-07-27T16:36:47.670+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-27T16:36:47.835+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-27T16:36:47.841+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

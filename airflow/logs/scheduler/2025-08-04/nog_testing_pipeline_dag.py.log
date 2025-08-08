@@ -1,0 +1,158 @@
+[2025-08-04T00:17:10.039+0000] {processor.py:161} INFO - Started process (PID=20883) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T00:17:11.162+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T00:17:11.528+0000] {logging_mixin.py:188} INFO - [2025-08-04T00:17:11.418+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T00:17:17.996+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:16:01.548+0000] {processor.py:161} INFO - Started process (PID=20889) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:16:01.658+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T02:16:01.715+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:16:01.673+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:16:04.351+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:16:11.231+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:16:11.222+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T02:16:11.301+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:16:11.301+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T02:16:11.448+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 12.227 seconds
+[2025-08-04T02:51:18.756+0000] {processor.py:161} INFO - Started process (PID=20899) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:51:18.767+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T02:51:18.781+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:51:18.777+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:51:19.524+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:51:20.476+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:51:20.474+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T02:51:20.671+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:51:20.670+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T02:51:20.982+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 2.650 seconds
+[2025-08-04T02:53:40.006+0000] {processor.py:161} INFO - Started process (PID=20909) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:53:40.029+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T02:53:40.040+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:53:40.033+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:53:40.290+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T02:53:40.762+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:53:40.761+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T02:53:40.930+0000] {logging_mixin.py:188} INFO - [2025-08-04T02:53:40.927+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T02:53:41.154+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 1.301 seconds
+[2025-08-04T03:57:39.896+0000] {processor.py:161} INFO - Started process (PID=20919) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T03:57:39.932+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T03:57:39.939+0000] {logging_mixin.py:188} INFO - [2025-08-04T03:57:39.935+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T03:57:40.240+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T03:57:40.780+0000] {logging_mixin.py:188} INFO - [2025-08-04T03:57:40.780+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T03:57:40.859+0000] {logging_mixin.py:188} INFO - [2025-08-04T03:57:40.858+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T03:57:40.925+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 1.367 seconds
+[2025-08-04T05:04:13.066+0000] {processor.py:161} INFO - Started process (PID=20929) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T05:04:15.985+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T05:04:22.048+0000] {logging_mixin.py:188} INFO - [2025-08-04T05:04:20.419+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T05:53:51.279+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T06:45:31.835+0000] {processor.py:161} INFO - Started process (PID=20935) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T06:45:32.131+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T06:45:32.965+0000] {logging_mixin.py:188} INFO - [2025-08-04T06:45:32.524+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T06:45:38.898+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T07:34:05.693+0000] {processor.py:161} INFO - Started process (PID=20941) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T07:34:05.796+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T07:34:06.326+0000] {logging_mixin.py:188} INFO - [2025-08-04T07:34:05.978+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T07:34:12.363+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T10:47:13.292+0000] {processor.py:161} INFO - Started process (PID=20947) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T10:47:13.709+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T10:47:14.353+0000] {logging_mixin.py:188} INFO - [2025-08-04T10:47:14.065+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T10:47:24.831+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T11:10:03.995+0000] {processor.py:161} INFO - Started process (PID=20953) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T11:10:04.036+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T11:10:04.087+0000] {logging_mixin.py:188} INFO - [2025-08-04T11:10:04.061+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T11:10:05.122+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T12:37:43.084+0000] {processor.py:161} INFO - Started process (PID=20959) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T12:37:43.370+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T12:37:43.822+0000] {logging_mixin.py:188} INFO - [2025-08-04T12:37:43.676+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T12:57:42.053+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T13:35:54.632+0000] {processor.py:161} INFO - Started process (PID=20965) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T13:35:54.825+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T13:35:54.905+0000] {logging_mixin.py:188} INFO - [2025-08-04T13:35:54.865+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T13:56:56.009+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T14:19:08.846+0000] {processor.py:161} INFO - Started process (PID=20971) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T14:19:08.977+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T14:19:09.284+0000] {logging_mixin.py:188} INFO - [2025-08-04T14:19:09.105+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T14:19:12.264+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T15:00:44.431+0000] {processor.py:161} INFO - Started process (PID=20977) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T15:00:44.557+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T15:00:44.797+0000] {logging_mixin.py:188} INFO - [2025-08-04T15:00:44.679+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T15:00:56.659+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T15:49:45.746+0000] {processor.py:161} INFO - Started process (PID=20983) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T15:49:45.852+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T15:49:46.036+0000] {logging_mixin.py:188} INFO - [2025-08-04T15:49:45.938+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T15:50:01.537+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T16:52:03.699+0000] {processor.py:161} INFO - Started process (PID=20989) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T16:52:04.022+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T16:52:04.286+0000] {logging_mixin.py:188} INFO - [2025-08-04T16:52:04.157+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T16:52:09.844+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:02:51.766+0000] {processor.py:161} INFO - Started process (PID=20995) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:02:52.468+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T18:02:52.556+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:02:52.541+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:02:55.075+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:07:18.755+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:07:18.604+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T18:12:01.428+0000] {processor.py:161} INFO - Started process (PID=21001) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:12:01.437+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T18:12:01.449+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:12:01.442+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:12:01.729+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:12:02.423+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:12:02.422+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T18:12:02.454+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:12:02.454+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T18:12:02.574+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 1.358 seconds
+[2025-08-04T18:36:39.389+0000] {processor.py:161} INFO - Started process (PID=21011) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:36:39.457+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T18:36:39.517+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:36:39.479+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:36:41.488+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:36:42.926+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:36:42.925+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T18:36:43.204+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:36:43.199+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T18:36:43.570+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 4.919 seconds
+[2025-08-04T18:37:15.160+0000] {processor.py:161} INFO - Started process (PID=21021) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:37:15.171+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T18:37:15.185+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:37:15.177+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:37:15.468+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:37:15.803+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:37:15.802+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T18:37:15.995+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:37:15.995+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T18:37:16.065+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 1.232 seconds
+[2025-08-04T18:58:58.486+0000] {processor.py:161} INFO - Started process (PID=21031) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:58:58.502+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T18:58:58.509+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:58:58.507+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:58:58.673+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T18:58:59.634+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:58:59.633+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T18:59:00.659+0000] {logging_mixin.py:188} INFO - [2025-08-04T18:59:00.657+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T18:59:00.797+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 2.422 seconds
+[2025-08-04T19:43:49.200+0000] {processor.py:161} INFO - Started process (PID=21041) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T19:43:49.305+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T19:43:49.363+0000] {logging_mixin.py:188} INFO - [2025-08-04T19:43:49.346+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T19:43:52.225+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T19:43:55.321+0000] {logging_mixin.py:188} INFO - [2025-08-04T19:43:55.295+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T19:43:56.354+0000] {logging_mixin.py:188} INFO - [2025-08-04T19:43:56.342+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T19:43:59.190+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 10.833 seconds
+[2025-08-04T21:06:25.732+0000] {processor.py:161} INFO - Started process (PID=21051) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T21:06:25.867+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T21:06:25.971+0000] {logging_mixin.py:188} INFO - [2025-08-04T21:06:25.918+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T21:06:29.096+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T21:06:33.607+0000] {logging_mixin.py:188} INFO - [2025-08-04T21:06:33.564+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T21:06:38.571+0000] {logging_mixin.py:188} INFO - [2025-08-04T21:06:38.567+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T21:30:25.246+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 15.637 seconds
+[2025-08-04T21:39:23.437+0000] {processor.py:161} INFO - Started process (PID=21061) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T21:39:23.453+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T21:39:23.470+0000] {logging_mixin.py:188} INFO - [2025-08-04T21:39:23.463+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T21:39:24.012+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T21:39:26.547+0000] {logging_mixin.py:188} INFO - [2025-08-04T21:39:26.524+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T21:39:26.702+0000] {logging_mixin.py:188} INFO - [2025-08-04T21:39:26.702+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T21:39:26.895+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 3.719 seconds
+[2025-08-04T22:12:51.319+0000] {processor.py:161} INFO - Started process (PID=21071) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T22:12:51.585+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T22:12:51.747+0000] {logging_mixin.py:188} INFO - [2025-08-04T22:12:51.689+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T22:12:58.870+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T22:13:06.455+0000] {logging_mixin.py:188} INFO - [2025-08-04T22:13:06.447+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T22:13:08.326+0000] {logging_mixin.py:188} INFO - [2025-08-04T22:13:08.276+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T22:45:42.224+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 20.853 seconds
+[2025-08-04T23:35:29.626+0000] {processor.py:161} INFO - Started process (PID=21081) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:35:29.640+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T23:35:29.655+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:35:29.649+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:35:29.951+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:35:30.888+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:35:30.887+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T23:35:30.927+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:35:30.926+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T23:35:31.010+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 1.532 seconds
+[2025-08-04T23:38:51.414+0000] {processor.py:161} INFO - Started process (PID=21091) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:38:51.430+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T23:38:51.448+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:38:51.447+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:38:51.651+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:38:51.887+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:38:51.886+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T23:38:51.954+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:38:51.954+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T23:38:52.007+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 0.814 seconds
+[2025-08-04T23:54:31.050+0000] {processor.py:161} INFO - Started process (PID=21101) to work on /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:54:31.269+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/nog_testing_pipeline_dag.py for tasks to queue
+[2025-08-04T23:54:31.472+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:54:31.364+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:54:32.959+0000] {processor.py:840} INFO - DAG(s) 'nog_testing_pipeline' retrieved from /opt/airflow/dags/nog_testing_pipeline_dag.py
+[2025-08-04T23:54:38.680+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:54:38.276+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-08-04T23:54:42.559+0000] {logging_mixin.py:188} INFO - [2025-08-04T23:54:42.285+0000] {dag.py:3954} INFO - Setting next_dagrun for nog_testing_pipeline to None, run_after=None
+[2025-08-04T23:54:43.375+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/nog_testing_pipeline_dag.py took 16.689 seconds

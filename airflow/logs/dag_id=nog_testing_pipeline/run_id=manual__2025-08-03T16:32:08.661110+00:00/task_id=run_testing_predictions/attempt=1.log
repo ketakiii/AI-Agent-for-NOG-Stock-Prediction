@@ -1,0 +1,152 @@
+[2025-08-03T16:32:39.811+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-03T16:32:42.913+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_testing_pipeline.run_testing_predictions manual__2025-08-03T16:32:08.661110+00:00 [queued]>
+[2025-08-03T16:32:43.151+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_testing_pipeline.run_testing_predictions manual__2025-08-03T16:32:08.661110+00:00 [queued]>
+[2025-08-03T16:32:43.158+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-08-03T16:32:44.019+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_testing_predictions> on 2025-08-03 16:32:08.661110+00:00
+[2025-08-03T16:32:46.428+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_testing_pipeline', 'run_testing_predictions', 'manual__2025-08-03T16:32:08.661110+00:00', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/nog_testing_pipeline_dag.py', '--cfg-path', '/tmp/tmp9b2x6dq7']
+[2025-08-03T16:32:46.861+0000] {standard_task_runner.py:91} INFO - Job 71: Subtask run_testing_predictions
+[2025-08-03T16:32:46.875+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=19331) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-08-03T16:32:46.900+0000] {standard_task_runner.py:63} INFO - Started process 19342 to run task
+[2025-08-03T16:32:50.120+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_testing_pipeline.run_testing_predictions manual__2025-08-03T16:32:08.661110+00:00 [running]> on host 0899e77ef937
+[2025-08-03T16:32:51.601+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_testing_pipeline' AIRFLOW_CTX_TASK_ID='run_testing_predictions' AIRFLOW_CTX_EXECUTION_DATE='2025-08-03T16:32:08.661110+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-03T16:32:08.661110+00:00'
+[2025-08-03T16:32:51.626+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-08-03T16:33:05.048+0000] {nog_testing_pipeline_dag.py:42} INFO - Starting testing predictions with existing data...
+[2025-08-03T16:33:05.050+0000] {weekly_predict.py:369} INFO - STARTING: run_weekly_pipeline method
+[2025-08-03T16:33:05.051+0000] {weekly_predict.py:370} INFO - Parameters: update_data=False, retrain=True, prediction_days=5
+[2025-08-03T16:33:05.051+0000] {weekly_predict.py:371} INFO - Current time: 2025-08-03 16:33:05.051339
+[2025-08-03T16:33:05.051+0000] {weekly_predict.py:375} INFO - STEP 1: Fetching latest data...
+[2025-08-03T16:33:05.051+0000] {weekly_predict.py:376} INFO - Data source: Existing CSV files
+[2025-08-03T16:33:05.051+0000] {weekly_predict.py:112} INFO - 🔄 STARTING: fetch_latest_data method
+[2025-08-03T16:33:05.052+0000] {weekly_predict.py:113} INFO - 📊 update_csv parameter: False
+[2025-08-03T16:33:05.052+0000] {weekly_predict.py:116} INFO - 📡 STEP 1: Calling run_data_pipeline...
+[2025-08-03T16:33:05.052+0000] {weekly_predict.py:117} INFO - 🎯 This should fetch fresh data from Yahoo Finance
+[2025-08-03T16:33:05.052+0000] {data_pipeline.py:187} INFO - STARTING: run_data_pipeline
+[2025-08-03T16:33:05.052+0000] {data_pipeline.py:188} INFO - Parameters: ticker=NOG, csvflag=True
+[2025-08-03T16:33:05.052+0000] {data_pipeline.py:189} INFO - Data source: Existing CSV
+[2025-08-03T16:33:05.052+0000] {data_pipeline.py:192} INFO -  STEP 1: Reading base CSV file...
+[2025-08-03T16:33:05.247+0000] {data_pipeline.py:194} INFO -  STEP 1 COMPLETED: Base CSV read successfully
+[2025-08-03T16:33:05.247+0000] {data_pipeline.py:195} INFO -  Base data shape: (3411, 6)
+[2025-08-03T16:33:05.248+0000] {data_pipeline.py:197} INFO -  STEP 2: Running news data pipeline...
+[2025-08-03T16:33:05.344+0000] {logging_mixin.py:188} INFO - [INFO] Loaded 646 existing news articles
+[2025-08-03T16:33:05.345+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas'
+[2025-08-03T16:33:46.492+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG stock'
+[2025-08-03T16:33:57.695+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas earnings'
+[2025-08-03T16:34:10.510+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil & Gas Inc'
+[2025-08-03T16:36:01.451+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q1 results'
+[2025-08-03T16:36:05.329+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q2 results'
+[2025-08-03T16:36:09.549+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q3 results'
+[2025-08-03T16:36:11.702+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q4 results'
+[2025-08-03T16:36:13.700+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG quarterly report'
+[2025-08-03T16:36:17.300+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas acquisition'
+[2025-08-03T16:36:27.921+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG financial results'
+[2025-08-03T16:36:31.965+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas dividend'
+[2025-08-03T16:36:46.640+0000] {logging_mixin.py:188} INFO - [INFO] Fetched 158 new news articles
+[2025-08-03T16:36:46.779+0000] {logging_mixin.py:188} INFO - [INFO] Saved 765 total news articles to data/NOG_news_2years.csv
+[2025-08-03T16:36:46.870+0000] {logging_mixin.py:188} INFO - [INFO] Created 765 enhanced news chunks
+[2025-08-03T16:36:46.873+0000] {data_pipeline.py:199} INFO -  STEP 2 COMPLETED: News data pipeline completed
+[2025-08-03T16:36:46.873+0000] {data_pipeline.py:202} INFO -  STEP 3A: Using existing CSV data...
+[2025-08-03T16:36:46.891+0000] {data_pipeline.py:205} INFO -  Date range: 2023-04-27 to 2025-07-25
+[2025-08-03T16:36:46.893+0000] {data_pipeline.py:106} INFO - STARTING: get_data_from_csv
+[2025-08-03T16:36:46.893+0000] {data_pipeline.py:107} INFO - File path: /opt/***/project/data/NOG.csv
+[2025-08-03T16:36:46.901+0000] {data_pipeline.py:108} INFO - Date range: 2023-04-27 to 2025-07-25
+[2025-08-03T16:36:46.904+0000] {data_pipeline.py:111} INFO - STEP 1: Reading CSV file...
+[2025-08-03T16:36:47.037+0000] {data_pipeline.py:113} INFO - STEP 1 COMPLETED: CSV file read successfully
+[2025-08-03T16:36:47.038+0000] {data_pipeline.py:114} INFO - Raw data shape: (3411, 6)
+[2025-08-03T16:36:47.038+0000] {data_pipeline.py:116} INFO - STEP 2: Converting date column...
+[2025-08-03T16:36:47.043+0000] {data_pipeline.py:118} INFO - STEP 2 COMPLETED: Date column converted
+[2025-08-03T16:36:47.043+0000] {data_pipeline.py:120} INFO - STEP 3: Filtering by date range...
+[2025-08-03T16:36:47.063+0000] {data_pipeline.py:125} INFO - STEP 3 COMPLETED: Date filtering applied
+[2025-08-03T16:36:47.065+0000] {data_pipeline.py:126} INFO - Filtered data shape: (564, 6)
+[2025-08-03T16:36:47.066+0000] {data_pipeline.py:128} INFO - STEP 4: Cleaning data...
+[2025-08-03T16:36:47.069+0000] {data_pipeline.py:130} INFO - STEP 4 COMPLETED: Data cleaning completed
+[2025-08-03T16:36:47.069+0000] {data_pipeline.py:131} INFO - Final data shape: (564, 6)
+[2025-08-03T16:36:47.069+0000] {data_pipeline.py:208} INFO -  STEP 3A COMPLETED: Existing CSV data loaded
+[2025-08-03T16:36:47.070+0000] {data_pipeline.py:209} INFO -  Stock data shape: (564, 6)
+[2025-08-03T16:36:47.070+0000] {data_pipeline.py:244} INFO - 🔧 STEP 4: Computing macroeconomic indicators...
+[2025-08-03T16:36:48.868+0000] {data_pipeline.py:250} INFO - STEP 4 COMPLETED: Macro indicators computed
+[2025-08-03T16:36:48.871+0000] {data_pipeline.py:251} INFO - Macro data shape: (585, 3)
+[2025-08-03T16:36:48.871+0000] {data_pipeline.py:260} INFO - 🔧 STEP 5: Preprocessing data...
+[2025-08-03T16:36:48.872+0000] {data_pipeline.py:144} INFO - STARTING: preprocess_data
+[2025-08-03T16:36:48.872+0000] {data_pipeline.py:145} INFO - Main data shape: (564, 6)
+[2025-08-03T16:36:48.872+0000] {data_pipeline.py:146} INFO - Macro data shape: (585, 3)
+[2025-08-03T16:36:48.872+0000] {data_pipeline.py:149} INFO - STEP 1: Computing technical indicators...
+[2025-08-03T16:36:48.894+0000] {data_pipeline.py:151} INFO - STEP 1 COMPLETED: Technical indicators computed
+[2025-08-03T16:36:48.894+0000] {data_pipeline.py:152} INFO - Technical data shape: (515, 17)
+[2025-08-03T16:36:48.894+0000] {data_pipeline.py:154} INFO - STEP 2: Converting date columns...
+[2025-08-03T16:36:48.896+0000] {data_pipeline.py:157} INFO - STEP 2 COMPLETED: Date columns converted
+[2025-08-03T16:36:48.896+0000] {data_pipeline.py:159} INFO - STEP 3: Merging technical and macro data...
+[2025-08-03T16:36:48.902+0000] {data_pipeline.py:162} INFO - STEP 3 COMPLETED: Data merged
+[2025-08-03T16:36:48.902+0000] {data_pipeline.py:163} INFO - Merged data shape: (515, 19)
+[2025-08-03T16:36:48.903+0000] {data_pipeline.py:165} INFO - STEP 4: Handling missing values...
+[2025-08-03T16:36:48.903+0000] {data_pipeline.py:168} INFO - STEP 4 COMPLETED: Missing values handled
+[2025-08-03T16:36:48.904+0000] {data_pipeline.py:169} INFO - Final data shape: (515, 19)
+[2025-08-03T16:36:48.904+0000] {data_pipeline.py:263} INFO -  STEP 5 COMPLETED: Data preprocessing completed
+[2025-08-03T16:36:48.904+0000] {data_pipeline.py:264} INFO -  Final data shape: (515, 19)
+[2025-08-03T16:36:48.904+0000] {data_pipeline.py:273} INFO -  SUCCESS: Data pipeline completed successfully!
+[2025-08-03T16:36:48.904+0000] {data_pipeline.py:274} INFO -  Data source used: Existing CSV
+[2025-08-03T16:36:48.904+0000] {data_pipeline.py:275} INFO -  Final dataset shape: (515, 19)
+[2025-08-03T16:36:48.906+0000] {data_pipeline.py:276} INFO -  Date range: 2023-07-10 00:00:00 to 2025-07-25 00:00:00
+[2025-08-03T16:36:48.907+0000] {data_pipeline.py:287} INFO -  COMPLETED: run_data_pipeline
+[2025-08-03T16:36:48.919+0000] {weekly_predict.py:122} INFO - ✅ STEP 2: Data pipeline completed successfully
+[2025-08-03T16:36:48.920+0000] {weekly_predict.py:123} INFO - 📈 Data shape: (515, 19)
+[2025-08-03T16:36:48.920+0000] {weekly_predict.py:124} INFO - 📅 Date range: 2023-07-10 00:00:00 to 2025-07-25 00:00:00
+[2025-08-03T16:36:48.920+0000] {weekly_predict.py:125} INFO - 📊 Columns: ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'ma_10', 'm_50', 'daily_change', 'volatility_10', 'RSI_14', 'bb_high', 'bb_low', 'Momentum_10', 'Cumulative_Price_Volume', 'Cumulative_Volume', 'VWAP', 'Crude_Oil', 'Fed_Funds_Rate']
+[2025-08-03T16:36:48.921+0000] {weekly_predict.py:128} INFO - 🎉 SUCCESS: Fresh data fetched from Yahoo Finance API!
+[2025-08-03T16:36:48.921+0000] {weekly_predict.py:129} INFO - 📈 Total rows: 515
+[2025-08-03T16:36:48.934+0000] {weekly_predict.py:130} INFO - 📊 Sample data: {'Date': {0: Timestamp('2023-07-10 00:00:00'), 1: Timestamp('2023-07-11 00:00:00'), 2: Timestamp('2023-07-12 00:00:00')}, 'Close': {0: 32.31741714477539, 1: 32.4651985168457, 2: 33.084022521972656}, 'High': {0: 32.372832007185515, 1: 32.539086180266864, 2: 33.157913711335084}, 'Low': {0: 31.70782899498597, 1: 31.98491637296815, 2: 32.54832549239839}, 'Open': {0: 31.855607833622027, 1: 32.40978012678555, 2: 32.6776315504568}, 'Volume': {0: 1479000.0, 1: 1245700.0, 2: 1237400.0}, 'ma_10': {0: 31.306367111206054, 1: 31.567440795898438, 2: 31.862998390197752}, 'm_50': {0: 29.524194297790526, 1: 29.58334976196289, 2: 29.63917362213135}, 'daily_change': {0: 0.017742645623413766, 1: 0.004572808879134138, 2: 0.019061149581631298}, 'volatility_10': {0: 0.8139880515263686, 1: 0.7083984330968599, 2: 0.6559325778515495}, 'RSI_14': {0: 64.18858263411917, 1: 65.65844435107147, 2: 67.7717935518494}, 'bb_high': {0: 32.44268110247368, 1: 32.70514876281451, 2: 33.045412129478}, 'bb_low': {0: 28.879798145573194, 1: 28.850092821963322, 2: 28.857442980690458}, 'Momentum_10': {0: 3.0291748046875, 1: 2.610736846923828, 2: 2.9555759429931676}, 'Cumulative_Price_Volume': {0: 2376390386.985588, 1: 2416832284.778023, 2: 2457770454.2467117}, 'Cumulative_Volume': {0: 81213700.0, 1: 82459400.0, 2: 83696800.0}, 'VWAP': {0: 29.260954580145814, 1: 29.309360543225186, 2: 29.36516634144569}, 'Crude_Oil': {0: 73.05, 1: 74.87, 2: 75.77}, 'Fed_Funds_Rate': {0: 5.12, 1: 5.12, 2: 5.12}}
+[2025-08-03T16:36:48.935+0000] {weekly_predict.py:379} INFO - STEP 1 COMPLETED: Data fetched successfully
+[2025-08-03T16:36:48.935+0000] {weekly_predict.py:380} INFO - Data shape: (515, 19)
+[2025-08-03T16:36:48.936+0000] {weekly_predict.py:381} INFO - Date range: 2023-07-10 00:00:00 to 2025-07-25 00:00:00
+[2025-08-03T16:36:48.937+0000] {weekly_predict.py:384} INFO - STEP 2: Preparing features and target...
+[2025-08-03T16:36:48.939+0000] {weekly_predict.py:153} INFO - 🔄 STARTING: prepare_features method
+[2025-08-03T16:36:48.939+0000] {weekly_predict.py:154} INFO - 📊 Input data shape: (515, 19)
+[2025-08-03T16:36:48.940+0000] {weekly_predict.py:165} INFO - ✅ STEP 1: Features prepared successfully
+[2025-08-03T16:36:48.941+0000] {weekly_predict.py:166} INFO - 📈 Features shape: (514, 5)
+[2025-08-03T16:36:48.941+0000] {weekly_predict.py:167} INFO - 📊 Target shape: (514,)
+[2025-08-03T16:36:48.941+0000] {weekly_predict.py:168} INFO - 📋 Feature columns: ['Open', 'High', 'Low', 'Close', 'Volume']
+[2025-08-03T16:36:48.941+0000] {weekly_predict.py:386} INFO - STEP 2 COMPLETED: Features prepared successfully
+[2025-08-03T16:36:48.941+0000] {weekly_predict.py:387} INFO - Features shape: (514, 5)
+[2025-08-03T16:36:48.942+0000] {weekly_predict.py:388} INFO - Target shape: (514,)
+[2025-08-03T16:36:48.942+0000] {weekly_predict.py:391} INFO - STEP 3: Model training/loading...
+[2025-08-03T16:36:48.942+0000] {weekly_predict.py:393} INFO - Training new model...
+[2025-08-03T16:36:48.942+0000] {weekly_predict.py:190} INFO - Training weekly model...
+[2025-08-03T16:36:51.118+0000] {weekly_predict.py:232} INFO - Model training completed. R²: -1.1452
+[2025-08-03T16:36:51.121+0000] {weekly_predict.py:395} INFO - Model training completed
+[2025-08-03T16:36:51.122+0000] {weekly_predict.py:396} INFO - Model metrics: {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}
+[2025-08-03T16:36:51.122+0000] {weekly_predict.py:398} INFO - Saving model...
+[2025-08-03T16:36:51.271+0000] {weekly_predict.py:239} INFO - Model saved to saved_models/xgb_model.pkl
+[2025-08-03T16:36:51.272+0000] {weekly_predict.py:400} INFO - Model saved successfully
+[2025-08-03T16:36:51.272+0000] {weekly_predict.py:402} INFO - Saving performance data...
+[2025-08-03T16:36:51.289+0000] {weekly_predict.py:353} INFO - Performance data saved to data/model_performance.json
+[2025-08-03T16:36:51.290+0000] {weekly_predict.py:404} INFO - Performance data saved successfully
+[2025-08-03T16:36:51.291+0000] {weekly_predict.py:426} INFO - STEP 4: Generating predictions...
+[2025-08-03T16:36:51.291+0000] {weekly_predict.py:427} INFO - Predicting 5 days ahead...
+[2025-08-03T16:36:51.293+0000] {weekly_predict.py:268} INFO - Generating predictions for next 5 days...
+[2025-08-03T16:36:51.319+0000] {weekly_predict.py:430} INFO - STEP 4 COMPLETED: Predictions generated successfully
+[2025-08-03T16:36:51.319+0000] {weekly_predict.py:431} INFO - Number of predictions: 5
+[2025-08-03T16:36:51.320+0000] {weekly_predict.py:432} INFO - Sample predictions: [{'date': '2025-08-04', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-05', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-06', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}]
+[2025-08-03T16:36:51.320+0000] {weekly_predict.py:435} INFO - STEP 5: Saving predictions...
+[2025-08-03T16:36:51.323+0000] {weekly_predict.py:329} INFO - Predictions saved to data/weekly_predictions.json
+[2025-08-03T16:36:51.327+0000] {weekly_predict.py:437} INFO - STEP 5 COMPLETED: Predictions saved successfully
+[2025-08-03T16:36:51.328+0000] {weekly_predict.py:440} INFO - STEP 6: Preparing final results...
+[2025-08-03T16:36:51.328+0000] {weekly_predict.py:450} INFO - SUCCESS: Weekly prediction pipeline completed successfully!
+[2025-08-03T16:36:51.328+0000] {weekly_predict.py:451} INFO - Final results: {'status': 'success', 'timestamp': '2025-08-03T16:36:51.328474', 'predictions': [{'date': '2025-08-04', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-05', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-06', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-07', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-08', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}], 'model_metrics': {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}, 'data_points': 514, 'data_updated': False}
+[2025-08-03T16:36:51.329+0000] {weekly_predict.py:452} INFO - Total predictions: 5
+[2025-08-03T16:36:51.329+0000] {weekly_predict.py:453} INFO - Model performance: {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}
+[2025-08-03T16:36:51.330+0000] {weekly_predict.py:454} INFO - Data points used: 514
+[2025-08-03T16:36:51.330+0000] {weekly_predict.py:455} INFO - Data source: Existing CSV
+[2025-08-03T16:36:51.330+0000] {weekly_predict.py:473} INFO - COMPLETED: run_weekly_pipeline method
+[2025-08-03T16:36:51.331+0000] {nog_testing_pipeline_dag.py:51} INFO - Testing predictions completed successfully
+[2025-08-03T16:36:51.335+0000] {nog_testing_pipeline_dag.py:55} INFO - Model R² Score: -1.1452176351474073
+[2025-08-03T16:36:51.335+0000] {nog_testing_pipeline_dag.py:56} INFO - Data Points Used: 514
+[2025-08-03T16:36:51.336+0000] {nog_testing_pipeline_dag.py:61} INFO - Prediction for 2025-08-04: $30.19
+[2025-08-03T16:36:51.336+0000] {nog_testing_pipeline_dag.py:61} INFO - Prediction for 2025-08-05: $30.19
+[2025-08-03T16:36:51.337+0000] {nog_testing_pipeline_dag.py:61} INFO - Prediction for 2025-08-06: $30.19
+[2025-08-03T16:36:51.338+0000] {nog_testing_pipeline_dag.py:61} INFO - Prediction for 2025-08-07: $30.19
+[2025-08-03T16:36:51.338+0000] {nog_testing_pipeline_dag.py:61} INFO - Prediction for 2025-08-08: $30.19
+[2025-08-03T16:36:52.507+0000] {python.py:237} INFO - Done. Returned value was: {'status': 'success', 'timestamp': '2025-08-03T16:36:51.328474', 'predictions': [{'date': '2025-08-04', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-05', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-06', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-07', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-08', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-08-03', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}], 'model_metrics': {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}, 'data_points': 514, 'data_updated': False}
+[2025-08-03T16:36:52.514+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-08-03T16:36:52.611+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nog_testing_pipeline, task_id=run_testing_predictions, run_id=manual__2025-08-03T16:32:08.661110+00:00, execution_date=20250803T163208, start_date=20250803T163242, end_date=20250803T163652
+[2025-08-03T16:36:52.856+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-08-03T16:36:53.073+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-08-03T16:36:53.076+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

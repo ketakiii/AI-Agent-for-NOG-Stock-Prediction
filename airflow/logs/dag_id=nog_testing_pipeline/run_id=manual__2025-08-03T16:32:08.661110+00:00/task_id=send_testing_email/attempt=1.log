@@ -1,0 +1,52 @@
+[2025-08-03T16:36:54.318+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-03T16:36:54.710+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_testing_pipeline.send_testing_email manual__2025-08-03T16:32:08.661110+00:00 [queued]>
+[2025-08-03T16:36:54.729+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_testing_pipeline.send_testing_email manual__2025-08-03T16:32:08.661110+00:00 [queued]>
+[2025-08-03T16:36:54.729+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-08-03T16:36:54.755+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_testing_email> on 2025-08-03 16:32:08.661110+00:00
+[2025-08-03T16:36:54.795+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_testing_pipeline', 'send_testing_email', 'manual__2025-08-03T16:32:08.661110+00:00', '--job-id', '72', '--raw', '--subdir', 'DAGS_FOLDER/nog_testing_pipeline_dag.py', '--cfg-path', '/tmp/tmpurujffi5']
+[2025-08-03T16:36:54.812+0000] {standard_task_runner.py:91} INFO - Job 72: Subtask send_testing_email
+[2025-08-03T16:36:54.814+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=19438) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-08-03T16:36:54.815+0000] {standard_task_runner.py:63} INFO - Started process 19439 to run task
+[2025-08-03T16:36:54.948+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_testing_pipeline.send_testing_email manual__2025-08-03T16:32:08.661110+00:00 [running]> on host 0899e77ef937
+[2025-08-03T16:36:55.204+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_testing_pipeline' AIRFLOW_CTX_TASK_ID='send_testing_email' AIRFLOW_CTX_EXECUTION_DATE='2025-08-03T16:32:08.661110+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-03T16:32:08.661110+00:00'
+[2025-08-03T16:36:55.206+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-08-03T16:36:55.272+0000] {nog_testing_pipeline_dag.py:123} ERROR - Error in testing email: Task id 'send_testing_email' has already been added to the DAG
+[2025-08-03T16:36:55.272+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-08-03T16:36:55.279+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/nog_testing_pipeline_dag.py", line 108, in send_testing_email
+    email_op = EmailOperator(
+               ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 484, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/email.py", line 66, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 484, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 899, in __init__
+    task_group.add(self)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/task_group.py", line 232, in add
+    raise DuplicateTaskIdFound(f"{node_type} id '{key}' has already been added to the DAG")
+airflow.exceptions.DuplicateTaskIdFound: Task id 'send_testing_email' has already been added to the DAG
+[2025-08-03T16:36:55.293+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=nog_testing_pipeline, task_id=send_testing_email, run_id=manual__2025-08-03T16:32:08.661110+00:00, execution_date=20250803T163208, start_date=20250803T163654, end_date=20250803T163655
+[2025-08-03T16:36:55.305+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 72 for task send_testing_email (Task id 'send_testing_email' has already been added to the DAG; 19439)
+[2025-08-03T16:36:55.327+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-08-03T16:36:55.361+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-08-03T16:36:55.362+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

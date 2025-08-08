@@ -1,0 +1,10 @@
+[2025-07-27T18:36:00.897+0000] {executor_loader.py:235} INFO - Loaded executor: LocalExecutor
+[2025-07-27T18:36:02.039+0000] {logging_mixin.py:188} INFO - Sending to executor.
+[2025-07-27T18:36:02.053+0000] {base_executor.py:149} INFO - Adding to queue: ['***', 'tasks', 'run', 'nog_production_pipeline', 'run_weekly_predictions', 'manual__2025-07-27T18:30:21+00:00', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/nog_production_pipeline_dag.py']
+[2025-07-27T18:36:02.106+0000] {local_executor.py:403} INFO - Shutting down LocalExecutor; waiting for running tasks to finish.  Signal again if you don't want to wait.
+[2025-07-27T18:36:02.105+0000] {local_executor.py:90} INFO - QueuedLocalWorker running ['***', 'tasks', 'run', 'nog_production_pipeline', 'run_weekly_predictions', 'manual__2025-07-27T18:30:21+00:00', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/nog_production_pipeline_dag.py']
+[2025-07-27T18:36:02.332+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/***/dags/nog_production_pipeline_dag.py
+[2025-07-27T18:36:02.635+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T18:30:21+00:00 [failed]> on host 3a66419e3aae
+[2025-07-27T18:36:02.809+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-27T18:36:02.918+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T18:30:21+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
+[2025-07-27T18:36:02.927+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run

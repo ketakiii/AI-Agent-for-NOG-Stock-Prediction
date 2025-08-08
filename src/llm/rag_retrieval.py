@@ -36,23 +36,23 @@ class ChromaDBRetriever:
             self.collection = self.client.create_collection(name=collection_name)
             print(f"[INFO] Created new collection: {collection_name}")
     
-    def build_index_from_jsonl(self, jsonl_file_path: str) -> None:
+    def build_index_from_json(self, json_file_path: str) -> None:
         """
-        Build ChromaDB index from JSONL file.
+        Build ChromaDB index from a standard JSON file (list of objects).
         
         Args:
-            jsonl_file_path: Path to the JSONL file containing documents
+            json_file_path: Path to the JSON file containing documents
         """
-        print(f"[INFO] Building index from: {jsonl_file_path}")
+        print(f"[INFO] Building index from: {json_file_path}")
         
         documents = []
         metadatas = []
         ids = []
         
-        with open(jsonl_file_path, 'r') as f:
-            for i, line in enumerate(f):
-                if line.strip():
-                    data = json.loads(line)
+        with open(json_file_path, 'r') as f:
+            all_data = json.load(f)
+            for i, data in enumerate(all_data):
+                if 'text' in data:
                     documents.append(data['text'])
                     metadatas.append(data.get('metadata', {}))
                     ids.append(f"doc_{i}")

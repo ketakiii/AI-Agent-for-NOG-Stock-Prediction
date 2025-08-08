@@ -5,11 +5,6 @@ from airflow.utils.dates import days_ago
 from datetime import datetime, timedelta
 import sys
 import os
-
-# Add the project root to Python path
-sys.path.append('/opt/airflow/project')
-
-from src.models.weekly_predict import WeeklyPredictionPipeline
 import json
 import logging
 
@@ -39,8 +34,12 @@ def run_testing_predictions(**context):
     """
     Run weekly predictions with existing data for testing purposes.
     """
+    # Import heavy dependencies inside the function to avoid timeout
+    sys.path.append('/opt/airflow/project')
+    from src.models.weekly_predict import WeeklyPredictionPipeline
+    
     try:
-        logging.info("🧪 Starting testing predictions with existing data...")
+        logging.info("Starting testing predictions with existing data...")
         
         # Initialize the pipeline
         pipeline = WeeklyPredictionPipeline()
@@ -49,7 +48,7 @@ def run_testing_predictions(**context):
         results = pipeline.run_weekly_pipeline(update_data=False)
         
         if results["status"] == "success":
-            logging.info("✅ Testing predictions completed successfully")
+            logging.info("Testing predictions completed successfully")
             
             # Log key metrics
             metrics = results.get("model_metrics", {})
@@ -67,11 +66,11 @@ def run_testing_predictions(**context):
             return results
         else:
             error_msg = f"Testing predictions failed: {results.get('error', 'Unknown error')}"
-            logging.error(f"❌ {error_msg}")
+            logging.error(f"{error_msg}")
             raise Exception(error_msg)
             
     except Exception as e:
-        logging.error(f"❌ Error in testing predictions: {e}")
+        logging.error(f"Error in testing predictions: {e}")
         raise
 
 def send_testing_email(**context):
@@ -88,7 +87,7 @@ def send_testing_email(**context):
             
             # Create email content
             email_content = f"""
-            <h2>🧪 NOG Testing Predictions Results</h2>
+            <h2>NOG Testing Predictions Results</h2>
             <p><strong>Data Source:</strong> Existing data (testing mode)</p>
             <p><strong>Model R² Score:</strong> {metrics.get('R2', 'N/A'):.4f}</p>
             <p><strong>Data Points Used:</strong> {prediction_results.get('data_points', 'N/A')}</p>
@@ -102,40 +101,40 @@ def send_testing_email(**context):
             
             email_content += """
             </ul>
-            <p><em>Generated on: {{ ds }} (Testing Mode)</em></p>
+            <p><em>Generated on: {{ ds }}</em></p>
             """
             
             # Send email
             email_op = EmailOperator(
                 task_id='send_testing_email',
                 to=['ketaki.kolhatkar99@gmail.com'],
-                subject='🧪 NOG Testing Predictions - {{ ds }}',
+                subject=f'NOG Testing Predictions - {{ ds }}',
                 html_content=email_content,
                 dag=dag
             )
             
             email_op.execute(context)
-            logging.info("✅ Testing email sent")
+            logging.info("Testing email sent successfully")
             
         else:
-            logging.error("❌ No prediction results found for testing email")
+            logging.error("No prediction results found for testing email")
             
     except Exception as e:
-        logging.error(f"❌ Error sending testing email: {e}")
+        logging.error(f"Error in testing email: {e}")
         raise
 
 # Define tasks
-testing_predictions_task = PythonOperator(
+run_testing_task = PythonOperator(
     task_id='run_testing_predictions',
     python_callable=run_testing_predictions,
     dag=dag,
 )
 
-testing_email_task = PythonOperator(
+send_testing_email_task = PythonOperator(
     task_id='send_testing_email',
     python_callable=send_testing_email,
     dag=dag,
 )
 
 # Define task dependencies
-testing_predictions_task >> testing_email_task 
+run_testing_task >> send_testing_email_task 
