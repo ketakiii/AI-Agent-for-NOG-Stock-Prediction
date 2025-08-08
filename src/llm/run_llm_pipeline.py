@@ -1,56 +1,41 @@
 import os
-import json
-from tqdm import tqdm
-from typing import List
-from langchain.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.docstore.document import Document
+import argparse
+from rag_retrieval import ChromaDBRetriever
 
-class llm_pipeline:
-
-    def __init__(self, modelname: str='all-MiniLM-L6-v2', index_save_path: str='data/chroma_db'):
-        self.modelname = modelname
-        self.index_save_path = index_save_path
-        self.embedding_model = HuggingFaceEmbeddings(model_name=modelname)
-        self.db = None
-
-    def load_documents_from_jsonl(self, jsonlpath: str) -> List[Document]:
-        documents = []
-        with open(jsonlpath, 'r') as file:
-            for line in tqdm(file, desc=f'Loading {jsonlpath}'):
-                item = json.loads(line)
-                metadata = item.get('metadata', {})
-                doc = Document(page_content=item['text'], metadata=metadata)
-                documents.append(doc)
-        return documents
+def run_indexing(input_file: str, collection_name: str, persist_directory: str):
+    """
+    Builds or updates a ChromaDB index from a JSONL file.
+    """
+    print(f"--- Starting Index Build for collection '{collection_name}' ---")
     
-    def build_index(self, documents: List[Document]):
-        # Use ChromaDB instead of FAISS
-        self.db = Chroma.from_documents(
-            documents=documents, 
-            embedding=self.embedding_model,
-            persist_directory=self.index_save_path
-        )
-        print('ChromaDB index created with {} documents'.format(len(documents)))
+    # Initialize the retriever, which connects to or creates the collection
+    retriever = ChromaDBRetriever(
+        collection_name=collection_name,
+        persist_directory=persist_directory
+    )
     
-    def save_index(self):
-        if self.db:
-            # ChromaDB automatically persists when created with persist_directory
-            print(f'Index saved to {self.index_save_path}')
+    # Build the index from the specified file
+    retriever.build_index_from_json(input_file)
     
-    def run(self, inputpath: str):
-        documents = self.load_documents_from_jsonl(inputpath)
-        self.build_index(documents)
-        self.save_index()
+    print("--- Indexing Complete ---")
+    stats = retriever.get_collection_stats()
+    print(f"Collection stats: {stats}")
 
 if __name__=='__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description='Build and save vector db using ChromaDB')
-    parser.add_argument('--input', type=str, required=True, help='Path to input JSONL file')
-    parser.add_argument('--model', type=str, default='all-MiniLM-L6-v2', help='Hugging Face model for embeddings')
-    parser.add_argument('--output', type=str, default='data/chroma_db', help='Directory to save the ChromaDB index')
+    parser = argparse.ArgumentParser(description='Build a ChromaDB vector index from a JSONL file.')
+    parser.add_argument('--input', type=str, required=True, help='Path to the input JSONL file.')
+    parser.add_argument('--collection', type=str, default='nog_corpus', help='Name of the ChromaDB collection.')
+    parser.add_argument('--db_path', type=str, default='data/chroma_db', help='Directory to persist the ChromaDB index.')
+    
     args = parser.parse_args()
-    os.makedirs(args.output, exist_ok=True)
-    builder = llm_pipeline(modelname=args.model, index_save_path=args.output)
-    builder.run(args.input)
+    
+    # Ensure the database directory exists
+    os.makedirs(args.db_path, exist_ok=True)
+    
+    run_indexing(
+        input_file=args.input,
+        collection_name=args.collection,
+        persist_directory=args.db_path
+    )

@@ -1,0 +1,72 @@
+[2025-07-27T20:18:58.189+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-27T20:18:58.299+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_production_pipeline.send_success_email manual__2025-07-27T00:00:00+00:00 [queued]>
+[2025-07-27T20:18:58.307+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_production_pipeline.send_success_email manual__2025-07-27T00:00:00+00:00 [queued]>
+[2025-07-27T20:18:58.308+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-27T20:18:58.320+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): send_success_email> on 2025-07-27 00:00:00+00:00
+[2025-07-27T20:18:58.342+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=530) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-27T20:18:58.343+0000] {standard_task_runner.py:63} INFO - Started process 531 to run task
+[2025-07-27T20:18:58.339+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_production_pipeline', 'send_success_email', 'manual__2025-07-27T00:00:00+00:00', '--job-id', '68', '--raw', '--subdir', 'DAGS_FOLDER/nog_production_pipeline_dag.py', '--cfg-path', '/tmp/tmpwih9ncpf']
+[2025-07-27T20:18:58.345+0000] {standard_task_runner.py:91} INFO - Job 68: Subtask send_success_email
+[2025-07-27T20:18:58.427+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_production_pipeline.send_success_email manual__2025-07-27T00:00:00+00:00 [running]> on host 0899e77ef937
+[2025-07-27T20:18:58.622+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_production_pipeline' AIRFLOW_CTX_TASK_ID='send_success_email' AIRFLOW_CTX_EXECUTION_DATE='2025-07-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-27T00:00:00+00:00'
+[2025-07-27T20:18:58.626+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-27T20:18:58.670+0000] {nog_production_pipeline_dag.py:247} INFO - STARTING: send_success_email task
+[2025-07-27T20:18:58.676+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/context.py:320 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-07-27T20:18:58.676+0000] {nog_production_pipeline_dag.py:248} INFO - Execution date: 2025-07-27 00:00:00+00:00
+[2025-07-27T20:18:58.676+0000] {nog_production_pipeline_dag.py:249} INFO - Task instance: send_success_email
+[2025-07-27T20:18:58.677+0000] {nog_production_pipeline_dag.py:253} INFO - STEP 1: Retrieving prediction results from XCom...
+[2025-07-27T20:18:58.699+0000] {nog_production_pipeline_dag.py:45} INFO - Checking if monthly data update is needed for: 2025-07-27 00:00:00+00:00
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:50} INFO - Execution date: 2025-07-27 00:00:00+00:00
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:51} INFO - Day of month: 27
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:52} INFO - Day of week: 6 (0=Monday)
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:53} INFO - Is first Monday of month: False
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:58} INFO - WEEKLY RUN: This is a regular weekly run - will use existing data
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:260} INFO - Force update success flag: True
+[2025-07-27T20:18:58.700+0000] {nog_production_pipeline_dag.py:261} INFO - Prediction results available: True
+[2025-07-27T20:18:58.701+0000] {nog_production_pipeline_dag.py:262} INFO - Run type: Weekly
+[2025-07-27T20:18:58.701+0000] {nog_production_pipeline_dag.py:268} INFO - Number of predictions: 5
+[2025-07-27T20:18:58.701+0000] {nog_production_pipeline_dag.py:269} INFO - Model metrics: {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}
+[2025-07-27T20:18:58.701+0000] {nog_production_pipeline_dag.py:279} INFO - STEP 2: Preparing email with data source: existing data
+[2025-07-27T20:18:58.702+0000] {nog_production_pipeline_dag.py:300} INFO - STEP 3: Sending email...
+[2025-07-27T20:18:58.703+0000] {nog_production_pipeline_dag.py:318} ERROR - EXCEPTION in send_success_email: Task id 'send_success_email' has already been added to the DAG
+[2025-07-27T20:18:58.703+0000] {nog_production_pipeline_dag.py:319} ERROR - Exception type: DuplicateTaskIdFound
+[2025-07-27T20:18:58.703+0000] {nog_production_pipeline_dag.py:323} INFO - COMPLETED: send_success_email task
+[2025-07-27T20:18:58.703+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-27T20:18:58.715+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/nog_production_pipeline_dag.py", line 303, in send_success_email
+    email_op = EmailOperator(
+               ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 484, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/email.py", line 66, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 484, in apply_defaults
+    result = func(self, **kwargs, default_args=default_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 899, in __init__
+    task_group.add(self)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/task_group.py", line 232, in add
+    raise DuplicateTaskIdFound(f"{node_type} id '{key}' has already been added to the DAG")
+airflow.exceptions.DuplicateTaskIdFound: Task id 'send_success_email' has already been added to the DAG
+[2025-07-27T20:18:58.733+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=nog_production_pipeline, task_id=send_success_email, run_id=manual__2025-07-27T00:00:00+00:00, execution_date=20250727T000000, start_date=20250727T201858, end_date=20250727T201858
+[2025-07-27T20:18:58.747+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 68 for task send_success_email (Task id 'send_success_email' has already been added to the DAG; 531)
+[2025-07-27T20:18:58.777+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-27T20:18:58.828+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-27T20:18:58.829+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

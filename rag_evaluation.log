@@ -1,0 +1,264 @@
+2025-08-07 22:09:28,903 - INFO - --- Starting RAG Pipeline Evaluation ---
+2025-08-07 22:09:28,924 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 22:09:31,312 - INFO - Use pytorch device_name: mps
+2025-08-07 22:09:31,312 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 22:09:34,000 - INFO - Successfully loaded ChromaDB retriever.
+2025-08-07 22:09:34,024 - INFO - Collection stats: {'total_documents': 0, 'collection_name': 'nog_corpus'}
+2025-08-07 22:09:34,024 - INFO - --- Question 1: What were the key financial results for NOG in the last quarter? ---
+2025-08-07 22:09:35,863 - WARNING - No relevant context found.
+2025-08-07 22:09:35,863 - INFO - --- Question 2: What are the latest developments regarding Northern Oil and Gas acquisitions? ---
+2025-08-07 22:09:36,176 - WARNING - No relevant context found.
+2025-08-07 22:09:36,177 - INFO - --- Question 3: What is the company's outlook on future production? ---
+2025-08-07 22:09:36,489 - WARNING - No relevant context found.
+2025-08-07 22:09:36,489 - INFO - --- Question 4: Are there any recent news about NOG's dividend policy? ---
+2025-08-07 22:09:36,729 - WARNING - No relevant context found.
+2025-08-07 22:09:36,729 - INFO - --- Evaluation Complete ---
+2025-08-07 22:14:54,608 - INFO - --- Starting RAG Pipeline Evaluation ---
+2025-08-07 22:14:54,627 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 22:14:54,833 - INFO - Use pytorch device_name: mps
+2025-08-07 22:14:54,834 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 22:14:56,626 - INFO - Successfully loaded ChromaDB retriever.
+2025-08-07 22:14:56,648 - INFO - Collection stats: {'total_documents': 0, 'collection_name': 'nog_corpus'}
+2025-08-07 22:14:56,648 - INFO - --- Question 1: What were the key financial results for NOG in the last quarter? ---
+2025-08-07 22:14:57,220 - WARNING - No relevant context found.
+2025-08-07 22:14:57,220 - INFO - --- Question 2: What are the latest developments regarding Northern Oil and Gas acquisitions? ---
+2025-08-07 22:14:57,537 - WARNING - No relevant context found.
+2025-08-07 22:14:57,537 - INFO - --- Question 3: What is the company's outlook on future production? ---
+2025-08-07 22:14:57,776 - WARNING - No relevant context found.
+2025-08-07 22:14:57,777 - INFO - --- Question 4: Are there any recent news about NOG's dividend policy? ---
+2025-08-07 22:14:57,974 - WARNING - No relevant context found.
+2025-08-07 22:14:57,974 - INFO - --- Evaluation Complete ---
+2025-08-07 22:20:51,415 - INFO - --- Starting RAG Pipeline Evaluation ---
+2025-08-07 22:20:51,433 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 22:20:51,627 - INFO - Use pytorch device_name: mps
+2025-08-07 22:20:51,627 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 22:20:54,359 - INFO - Successfully loaded ChromaDB retriever.
+2025-08-07 22:20:54,613 - INFO - Collection stats: {'total_documents': 772, 'collection_name': 'nog_corpus'}
+2025-08-07 22:20:54,613 - INFO - --- Question 1: What were the key financial results for NOG in the last quarter? ---
+2025-08-07 22:20:55,187 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:20:55,187 - INFO -   1. (Distance: 0.5631) Date: 2025-07-31
+Source: Yahoo Finance
+Title: NOG Announces Second Quarter 2025 Results and Updates 2025 Guidance - Yahoo Finance
+
+Title: NOG Announce...
+2025-08-07 22:20:55,188 - INFO -   2. (Distance: 0.6568) Date: 2025-07-15
+Source: Yahoo Finance
+Title: NOG Schedules Second Quarter Earnings Release and Conference Call - Yahoo Finance
+
+Title: NOG Schedules...
+2025-08-07 22:20:55,188 - INFO -   3. (Distance: 0.6889) Date: 2025-07-25
+Source: MarketBeat
+Title: Q2 Earnings Forecast for NOG Issued By Capital One Financial - MarketBeat
+
+Title: Q2 Earnings Forecast for...
+2025-08-07 22:20:55,188 - INFO -   4. (Distance: 0.7016) Date: 2025-04-29
+Source: GuruFocus
+Title: NOG Exceeds Q1 Revenue Expectations with Strong Performance | NOG Stock News - GuruFocus
+
+nan
+
+URL: https://...
+2025-08-07 22:20:55,188 - INFO -   5. (Distance: 0.7030) Date: 2025-07-23
+Source: Defense World
+Title: Q2 Earnings Estimate for NOG Issued By Capital One Financial - Defense World
+
+Title: Q2 Earnings Estimat...
+2025-08-07 22:20:56,949 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-08-07 22:20:56,954 - ERROR - Error during answer generation: Error code: 401 - {'error': {'message': "You have insufficient permissions for this operation. Missing scopes: model.request. Check that you have the correct role in your organization (Reader, Writer, Owner) and project (Member, Owner), and if you're using a restricted API key, that it has the necessary scopes.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-08-07 22:20:56,955 - INFO - --- Question 2: What are the latest developments regarding Northern Oil and Gas acquisitions? ---
+2025-08-07 22:20:57,186 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:20:57,186 - INFO -   1. (Distance: 0.5687) Date: 2024-11-04
+Source: MSN
+Title: Northern Oil & Gas Q3 2024 Earnings Preview - MSN
+
+Key Details: Northern Oil & Gas Q3 2024 Earnings Preview - MSN...
+2025-08-07 22:20:57,186 - INFO -   2. (Distance: 0.5901) Date: 2025-07-14
+Source: Yahoo Finance
+Title: Northern Oil Insiders Strengthen Positions Following Convertible Notes Completion - Yahoo Finance
+
+Key D...
+2025-08-07 22:20:57,186 - INFO -   3. (Distance: 0.6060) Date: 2025-03-01
+Source: AInvest
+Title: Northern Oil and Gas, Inc. (NOG): The High Growth Oil Stock to Buy? - AInvest
+
+Title: Northern Oil and Gas, In...
+2025-08-07 22:20:57,186 - INFO -   4. (Distance: 0.6073) Date: 2025-03-06
+Source: Investing.com
+Title: Northern Oil & Gas at Conference: Strategic Growth and Innovation - Investing.com
+
+nan
+
+URL: https://new...
+2025-08-07 22:20:57,186 - INFO -   5. (Distance: 0.6374) Date: 2025-05-27
+Source: TipRanks
+Title: Northern Oil and Gas Elects New Directors - TipRanks
+
+Title: Northern Oil and Gas Elects New Directors - TipR...
+2025-08-07 22:20:57,661 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-08-07 22:20:57,662 - ERROR - Error during answer generation: Error code: 401 - {'error': {'message': "You have insufficient permissions for this operation. Missing scopes: model.request. Check that you have the correct role in your organization (Reader, Writer, Owner) and project (Member, Owner), and if you're using a restricted API key, that it has the necessary scopes.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-08-07 22:20:57,662 - INFO - --- Question 3: What is the company's outlook on future production? ---
+2025-08-07 22:20:57,875 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:20:57,875 - INFO -   1. (Distance: 0.9838) Date: 2025-07-10
+Source: AInvest
+Title: Northern Technologies Q3 2025: Unraveling Contradictions in Sales Performance, China Growth, and Compostable I...
+2025-08-07 22:20:57,875 - INFO -   2. (Distance: 0.9988) Date: 2025-07-10
+Source: Investing.com India
+Title: Earnings call transcript: Northern Technologies Q3 2025 misses EPS expectations - Investing.com In...
+2025-08-07 22:20:57,875 - INFO -   3. (Distance: 1.0050) Date: 2025-07-12
+Source: Investing.com UK
+Title: Earnings call transcript: Northern Technologies Q3 2025 misses EPS expectations - Investing.com UK
+
+T...
+2025-08-07 22:20:57,875 - INFO -   4. (Distance: 1.0053) Date: 2025-07-10
+Source: GlobeNewswire
+Title: Northern Technologies International Corporation Reports Financial Results for Third Quarter Fiscal 2025...
+2025-08-07 22:20:57,875 - INFO -   5. (Distance: 1.0182) Date: 2025-07-10
+Source: Nasdaq
+Title: Northern Technologies International Corporation Reports Q3 Fiscal 2025 Financial Results with 4% Increase in Co...
+2025-08-07 22:20:58,480 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-08-07 22:20:58,481 - ERROR - Error during answer generation: Error code: 401 - {'error': {'message': "You have insufficient permissions for this operation. Missing scopes: model.request. Check that you have the correct role in your organization (Reader, Writer, Owner) and project (Member, Owner), and if you're using a restricted API key, that it has the necessary scopes.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-08-07 22:20:58,482 - INFO - --- Question 4: Are there any recent news about NOG's dividend policy? ---
+2025-08-07 22:20:58,699 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:20:58,700 - INFO -   1. (Distance: 0.7603) Date: 2025-01-28
+Source: Business Wire
+Title: NOG Declares $0.45 Quarterly Cash Dividend, 12.5% Increase Year over Year; Provides Update on Share Repu...
+2025-08-07 22:20:58,700 - INFO -   2. (Distance: 0.7950) Date: 2025-03-04
+Source: Insider Monkey
+Title: Northern Oil and Gas, Inc. (NOG): Among the Dividend Stocks That Are Underperforming in 2025 - Insider...
+2025-08-07 22:20:58,700 - INFO -   3. (Distance: 0.7987) Date: 2025-03-04
+Source: Yahoo Finance
+Title: Northern Oil and Gas, Inc. (NOG): Among the Dividend Stocks That Are Underperforming in 2025 - Yahoo Fin...
+2025-08-07 22:20:58,700 - INFO -   4. (Distance: 0.8349) Date: 2025-04-30
+Source: Business Wire
+Title: NOG Declares $0.45 Quarterly Cash Dividend, 12.5% Increase Year-over-Year - Business Wire
+
+nan
+
+URL: htt...
+2025-08-07 22:20:58,700 - INFO -   5. (Distance: 0.8511) Date: 2025-08-01
+Source: Yahoo Finance
+Title: Dividends Declared Week of July 28 - Yahoo Finance
+
+Title: Dividends Declared Week of July 28 - Yahoo Fi...
+2025-08-07 22:20:58,847 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-08-07 22:20:58,847 - ERROR - Error during answer generation: Error code: 401 - {'error': {'message': "You have insufficient permissions for this operation. Missing scopes: model.request. Check that you have the correct role in your organization (Reader, Writer, Owner) and project (Member, Owner), and if you're using a restricted API key, that it has the necessary scopes.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-08-07 22:20:58,848 - INFO - --- Evaluation Complete ---
+2025-08-07 22:23:46,486 - INFO - --- Starting RAG Pipeline Evaluation ---
+2025-08-07 22:23:46,583 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-07 22:23:47,570 - INFO - Use pytorch device_name: mps
+2025-08-07 22:23:47,570 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-07 22:23:51,843 - INFO - Successfully loaded ChromaDB retriever.
+2025-08-07 22:23:53,406 - INFO - Collection stats: {'total_documents': 772, 'collection_name': 'nog_corpus'}
+2025-08-07 22:23:53,408 - INFO - --- Question 1: What were the key financial results for NOG in the last quarter? ---
+2025-08-07 22:23:55,005 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:23:55,006 - INFO -   1. (Distance: 0.5631) Date: 2025-07-31
+Source: Yahoo Finance
+Title: NOG Announces Second Quarter 2025 Results and Updates 2025 Guidance - Yahoo Finance
+
+Title: NOG Announce...
+2025-08-07 22:23:55,006 - INFO -   2. (Distance: 0.6568) Date: 2025-07-15
+Source: Yahoo Finance
+Title: NOG Schedules Second Quarter Earnings Release and Conference Call - Yahoo Finance
+
+Title: NOG Schedules...
+2025-08-07 22:23:55,006 - INFO -   3. (Distance: 0.6889) Date: 2025-07-25
+Source: MarketBeat
+Title: Q2 Earnings Forecast for NOG Issued By Capital One Financial - MarketBeat
+
+Title: Q2 Earnings Forecast for...
+2025-08-07 22:23:55,006 - INFO -   4. (Distance: 0.7016) Date: 2025-04-29
+Source: GuruFocus
+Title: NOG Exceeds Q1 Revenue Expectations with Strong Performance | NOG Stock News - GuruFocus
+
+nan
+
+URL: https://...
+2025-08-07 22:23:55,006 - INFO -   5. (Distance: 0.7030) Date: 2025-07-23
+Source: Defense World
+Title: Q2 Earnings Estimate for NOG Issued By Capital One Financial - Defense World
+
+Title: Q2 Earnings Estimat...
+2025-08-07 22:23:59,713 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:23:59,823 - INFO - [Generated Answer]:
+The key financial results for NOG in the second quarter of 2025 are not explicitly detailed in the provided context. The context mentions that NOG announced its second-quarter results and updated its 2025 guidance, but it does not provide specific figures or details about the financial performance. To obtain the key financial results, one would need to access the full announcement or report from NOG, which might be available through the provided Yahoo Finance link or other financial news outlets.
+2025-08-07 22:23:59,823 - INFO - --- Question 2: What are the latest developments regarding Northern Oil and Gas acquisitions? ---
+2025-08-07 22:24:00,555 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:24:00,556 - INFO -   1. (Distance: 0.5687) Date: 2024-11-04
+Source: MSN
+Title: Northern Oil & Gas Q3 2024 Earnings Preview - MSN
+
+Key Details: Northern Oil & Gas Q3 2024 Earnings Preview - MSN...
+2025-08-07 22:24:00,556 - INFO -   2. (Distance: 0.5901) Date: 2025-07-14
+Source: Yahoo Finance
+Title: Northern Oil Insiders Strengthen Positions Following Convertible Notes Completion - Yahoo Finance
+
+Key D...
+2025-08-07 22:24:00,556 - INFO -   3. (Distance: 0.6060) Date: 2025-03-01
+Source: AInvest
+Title: Northern Oil and Gas, Inc. (NOG): The High Growth Oil Stock to Buy? - AInvest
+
+Title: Northern Oil and Gas, In...
+2025-08-07 22:24:00,557 - INFO -   4. (Distance: 0.6073) Date: 2025-03-06
+Source: Investing.com
+Title: Northern Oil & Gas at Conference: Strategic Growth and Innovation - Investing.com
+
+nan
+
+URL: https://new...
+2025-08-07 22:24:00,557 - INFO -   5. (Distance: 0.6374) Date: 2025-05-27
+Source: TipRanks
+Title: Northern Oil and Gas Elects New Directors - TipRanks
+
+Title: Northern Oil and Gas Elects New Directors - TipR...
+2025-08-07 22:24:02,305 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:24:02,313 - INFO - [Generated Answer]:
+The provided articles do not specifically mention any recent acquisitions by Northern Oil and Gas. The articles focus on other aspects such as earnings previews, insider positions, strategic growth, and the election of new directors. For the latest developments regarding acquisitions, you might need to look for more recent sources or specific announcements from the company.
+2025-08-07 22:24:02,313 - INFO - --- Question 3: What is the company's outlook on future production? ---
+2025-08-07 22:24:03,025 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:24:03,026 - INFO -   1. (Distance: 0.9838) Date: 2025-07-10
+Source: AInvest
+Title: Northern Technologies Q3 2025: Unraveling Contradictions in Sales Performance, China Growth, and Compostable I...
+2025-08-07 22:24:03,026 - INFO -   2. (Distance: 0.9988) Date: 2025-07-10
+Source: Investing.com India
+Title: Earnings call transcript: Northern Technologies Q3 2025 misses EPS expectations - Investing.com In...
+2025-08-07 22:24:03,026 - INFO -   3. (Distance: 1.0050) Date: 2025-07-12
+Source: Investing.com UK
+Title: Earnings call transcript: Northern Technologies Q3 2025 misses EPS expectations - Investing.com UK
+
+T...
+2025-08-07 22:24:03,026 - INFO -   4. (Distance: 1.0053) Date: 2025-07-10
+Source: GlobeNewswire
+Title: Northern Technologies International Corporation Reports Financial Results for Third Quarter Fiscal 2025...
+2025-08-07 22:24:03,026 - INFO -   5. (Distance: 1.0182) Date: 2025-07-10
+Source: Nasdaq
+Title: Northern Technologies International Corporation Reports Q3 Fiscal 2025 Financial Results with 4% Increase in Co...
+2025-08-07 22:24:05,982 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:24:06,013 - INFO - [Generated Answer]:
+The provided context does not explicitly mention Northern Technologies' outlook on future production. To determine the company's outlook on future production, one would need to refer to additional details from the earnings call transcript, company reports, or statements from company executives that are not included in the provided excerpts.
+2025-08-07 22:24:06,014 - INFO - --- Question 4: Are there any recent news about NOG's dividend policy? ---
+2025-08-07 22:24:07,763 - INFO - [Retrieved Context - Top 5 docs]:
+2025-08-07 22:24:07,766 - INFO -   1. (Distance: 0.7603) Date: 2025-01-28
+Source: Business Wire
+Title: NOG Declares $0.45 Quarterly Cash Dividend, 12.5% Increase Year over Year; Provides Update on Share Repu...
+2025-08-07 22:24:07,767 - INFO -   2. (Distance: 0.7950) Date: 2025-03-04
+Source: Insider Monkey
+Title: Northern Oil and Gas, Inc. (NOG): Among the Dividend Stocks That Are Underperforming in 2025 - Insider...
+2025-08-07 22:24:07,767 - INFO -   3. (Distance: 0.7987) Date: 2025-03-04
+Source: Yahoo Finance
+Title: Northern Oil and Gas, Inc. (NOG): Among the Dividend Stocks That Are Underperforming in 2025 - Yahoo Fin...
+2025-08-07 22:24:07,767 - INFO -   4. (Distance: 0.8349) Date: 2025-04-30
+Source: Business Wire
+Title: NOG Declares $0.45 Quarterly Cash Dividend, 12.5% Increase Year-over-Year - Business Wire
+
+nan
+
+URL: htt...
+2025-08-07 22:24:07,767 - INFO -   5. (Distance: 0.8511) Date: 2025-08-01
+Source: Yahoo Finance
+Title: Dividends Declared Week of July 28 - Yahoo Finance
+
+Title: Dividends Declared Week of July 28 - Yahoo Fi...
+2025-08-07 22:24:09,851 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:24:09,860 - INFO - [Generated Answer]:
+Yes, there are recent news articles about NOG's dividend policy. On January 28, 2025, Business Wire reported that NOG declared a $0.45 quarterly cash dividend, which represents a 12.5% increase year-over-year. Additionally, on April 30, 2025, Business Wire again reported that NOG declared the same $0.45 quarterly cash dividend, maintaining the 12.5% increase year-over-year.
+2025-08-07 22:24:09,860 - INFO - --- Evaluation Complete ---

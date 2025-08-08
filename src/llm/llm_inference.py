@@ -2,6 +2,8 @@ from openai import OpenAI
 import os 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 from dotenv import load_dotenv
+
+load_dotenv()
 import warnings
 warnings.filterwarnings('ignore')
 

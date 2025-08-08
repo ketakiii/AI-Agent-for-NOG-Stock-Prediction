@@ -1,0 +1,460 @@
+[2025-07-27T19:51:30.167+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-27T19:51:30.379+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T00:00:00+00:00 [queued]>
+[2025-07-27T19:51:30.409+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T00:00:00+00:00 [queued]>
+[2025-07-27T19:51:30.412+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-27T19:51:30.451+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_weekly_predictions> on 2025-07-27 00:00:00+00:00
+[2025-07-27T19:51:30.464+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_production_pipeline', 'run_weekly_predictions', 'manual__2025-07-27T00:00:00+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/nog_production_pipeline_dag.py', '--cfg-path', '/tmp/tmpv8h06lh0']
+[2025-07-27T19:51:30.468+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=9015) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-27T19:51:30.469+0000] {standard_task_runner.py:91} INFO - Job 63: Subtask run_weekly_predictions
+[2025-07-27T19:51:30.469+0000] {standard_task_runner.py:63} INFO - Started process 9021 to run task
+[2025-07-27T19:51:30.542+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T00:00:00+00:00 [running]> on host 0899e77ef937
+[2025-07-27T19:51:30.621+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_production_pipeline' AIRFLOW_CTX_TASK_ID='run_weekly_predictions' AIRFLOW_CTX_EXECUTION_DATE='2025-07-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-27T00:00:00+00:00'
+[2025-07-27T19:51:30.622+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-27T19:51:37.716+0000] {nog_production_pipeline_dag.py:128} INFO - STARTING: run_weekly_predictions task
+[2025-07-27T19:51:37.718+0000] {nog_production_pipeline_dag.py:129} INFO - Execution date: 2025-07-27 00:00:00+00:00
+[2025-07-27T19:51:37.719+0000] {nog_production_pipeline_dag.py:130} INFO - Task instance: run_weekly_predictions
+[2025-07-27T19:51:37.719+0000] {nog_production_pipeline_dag.py:45} INFO - Checking if monthly data update is needed for: 2025-07-27 00:00:00+00:00
+[2025-07-27T19:51:37.719+0000] {nog_production_pipeline_dag.py:50} INFO - Execution date: 2025-07-27 00:00:00+00:00
+[2025-07-27T19:51:37.719+0000] {nog_production_pipeline_dag.py:51} INFO - Day of month: 27
+[2025-07-27T19:51:37.720+0000] {nog_production_pipeline_dag.py:52} INFO - Day of week: 6 (0=Monday)
+[2025-07-27T19:51:37.720+0000] {nog_production_pipeline_dag.py:53} INFO - Is first Monday of month: False
+[2025-07-27T19:51:37.720+0000] {nog_production_pipeline_dag.py:58} INFO - WEEKLY RUN: This is a regular weekly run - will use existing data
+[2025-07-27T19:51:37.720+0000] {nog_production_pipeline_dag.py:143} INFO - STEP 1: Weekly run detected - will use existing data
+[2025-07-27T19:51:37.720+0000] {nog_production_pipeline_dag.py:147} INFO - STEP 2: Initializing WeeklyPredictionPipeline...
+[2025-07-27T19:51:37.721+0000] {nog_production_pipeline_dag.py:149} INFO - WeeklyPredictionPipeline initialized successfully
+[2025-07-27T19:51:37.721+0000] {nog_production_pipeline_dag.py:158} INFO - STEP 3: Running weekly predictions with existing data (weekly run)...
+[2025-07-27T19:51:37.721+0000] {nog_production_pipeline_dag.py:162} INFO - STEP 4: Calling pipeline.run_weekly_pipeline(update_data=False)
+[2025-07-27T19:51:37.721+0000] {nog_production_pipeline_dag.py:163} INFO - This should use existing data
+[2025-07-27T19:51:37.721+0000] {weekly_predict.py:369} INFO - STARTING: run_weekly_pipeline method
+[2025-07-27T19:51:37.721+0000] {weekly_predict.py:370} INFO - Parameters: update_data=False, retrain=True, prediction_days=5
+[2025-07-27T19:51:37.722+0000] {weekly_predict.py:371} INFO - Current time: 2025-07-27 19:51:37.722148
+[2025-07-27T19:51:37.722+0000] {weekly_predict.py:375} INFO - STEP 1: Fetching latest data...
+[2025-07-27T19:51:37.722+0000] {weekly_predict.py:376} INFO - Data source: Existing CSV files
+[2025-07-27T19:51:37.722+0000] {weekly_predict.py:112} INFO - 🔄 STARTING: fetch_latest_data method
+[2025-07-27T19:51:37.722+0000] {weekly_predict.py:113} INFO - 📊 update_csv parameter: False
+[2025-07-27T19:51:37.722+0000] {weekly_predict.py:116} INFO - 📡 STEP 1: Calling run_data_pipeline...
+[2025-07-27T19:51:37.723+0000] {weekly_predict.py:117} INFO - 🎯 This should fetch fresh data from Yahoo Finance
+[2025-07-27T19:51:37.723+0000] {data_pipeline.py:187} INFO - STARTING: run_data_pipeline
+[2025-07-27T19:51:37.723+0000] {data_pipeline.py:188} INFO - Parameters: ticker=NOG, csvflag=True
+[2025-07-27T19:51:37.723+0000] {data_pipeline.py:189} INFO - Data source: Existing CSV
+[2025-07-27T19:51:37.723+0000] {data_pipeline.py:192} INFO -  STEP 1: Reading base CSV file...
+[2025-07-27T19:51:37.762+0000] {data_pipeline.py:194} INFO -  STEP 1 COMPLETED: Base CSV read successfully
+[2025-07-27T19:51:37.763+0000] {data_pipeline.py:195} INFO -  Base data shape: (3420, 6)
+[2025-07-27T19:51:37.763+0000] {data_pipeline.py:197} INFO -  STEP 2: Running news data pipeline...
+[2025-07-27T19:51:37.787+0000] {logging_mixin.py:188} INFO - [INFO] Loaded 644 existing news articles
+[2025-07-27T19:51:37.787+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas'
+[2025-07-27T19:52:17.344+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG stock'
+[2025-07-27T19:52:24.621+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas earnings'
+[2025-07-27T19:52:51.999+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil & Gas Inc'
+[2025-07-27T19:53:24.630+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2025-07-27T19:53:24.643+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-07-27T19:53:24.656+0000] {process_utils.py:132} INFO - Sending 15 to group 9021. PIDs of all processes in the group: [9021]
+[2025-07-27T19:53:24.657+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 9021
+[2025-07-27T19:53:24.661+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-07-27T19:53:24.670+0000] {data_pipeline.py:262} INFO -  COMPLETED: run_data_pipeline
+[2025-07-27T19:53:24.671+0000] {weekly_predict.py:473} INFO - COMPLETED: run_weekly_pipeline method
+[2025-07-27T19:53:24.671+0000] {nog_production_pipeline_dag.py:241} INFO - COMPLETED: run_weekly_predictions task
+[2025-07-27T19:53:24.672+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-27T19:53:24.775+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/nog_production_pipeline_dag.py", line 165, in run_weekly_predictions
+    results = pipeline.run_weekly_pipeline(update_data=force_update_success)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/models/weekly_predict.py", line 378, in run_weekly_pipeline
+    df = self.fetch_latest_data(update_csv=update_data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/models/weekly_predict.py", line 120, in fetch_latest_data
+    df = run_data_pipeline(csvflag=not update_csv)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/data/data_pipeline.py", line 198, in run_data_pipeline
+    run_news_data_pipeline()
+  File "/opt/airflow/project/src/data/news_ingest.py", line 184, in run_news_data_pipeline
+    updated_news_df = fetch_nog_news(period='7d')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/data/news_ingest.py", line 97, in fetch_nog_news
+    results = gnews.get_news(query)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/gnews.py", line 241, in get_news
+    return self._get_news(query)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/gnews.py", line 360, in _get_news
+    return [item for item in
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/gnews.py", line 202, in _process
+    url = process_url(item, self._exclude_websites)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/utils/utils.py", line 25, in process_url
+    url = requests.head(url).headers.get('location', url)
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 100, in head
+    return request("head", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "/usr/local/lib/python3.12/ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-07-27T19:53:24.815+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nog_production_pipeline, task_id=run_weekly_predictions, run_id=manual__2025-07-27T00:00:00+00:00, execution_date=20250727T000000, start_date=20250727T195130, end_date=20250727T195324
+[2025-07-27T19:53:24.926+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2025-07-27T19:53:26.480+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2025-07-27T19:53:26.973+0000] {taskinstance.py:879} ERROR - Failed to send email to: ['ketaki.kolhatkar99@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2479, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2676, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2701, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/nog_production_pipeline_dag.py", line 165, in run_weekly_predictions
+    results = pipeline.run_weekly_pipeline(update_data=force_update_success)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/models/weekly_predict.py", line 378, in run_weekly_pipeline
+    df = self.fetch_latest_data(update_csv=update_data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/models/weekly_predict.py", line 120, in fetch_latest_data
+    df = run_data_pipeline(csvflag=not update_csv)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/data/data_pipeline.py", line 198, in run_data_pipeline
+    run_news_data_pipeline()
+  File "/opt/airflow/project/src/data/news_ingest.py", line 184, in run_news_data_pipeline
+    updated_news_df = fetch_nog_news(period='7d')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/project/src/data/news_ingest.py", line 97, in fetch_nog_news
+    results = gnews.get_news(query)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/gnews.py", line 241, in get_news
+    return self._get_news(query)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/gnews.py", line 360, in _get_news
+    return [item for item in
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/gnews.py", line 202, in _process
+    url = process_url(item, self._exclude_websites)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/gnews/utils/utils.py", line 25, in process_url
+    url = requests.head(url).headers.get('location', url)
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 100, in head
+    return request("head", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 653, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 806, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 465, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 509, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "/usr/local/lib/python3.12/ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1063, in _email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 281, in send_mime_email
+    smtp_conn.login(smtp_user, smtp_password)
+  File "/usr/local/lib/python3.12/smtplib.py", line 750, in login
+    raise last_exception
+  File "/usr/local/lib/python3.12/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-7074984a421sm3853906d6.101 - gsmtp')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 877, in _handle_failure
+    task_instance.email_alert(error, failure_context["task"])
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3163, in email_alert
+    _email_alert(task_instance=self, exception=exception, task=task)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1065, in _email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 281, in send_mime_email
+    smtp_conn.login(smtp_user, smtp_password)
+  File "/usr/local/lib/python3.12/smtplib.py", line 750, in login
+    raise last_exception
+  File "/usr/local/lib/python3.12/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-707448dde7asm7756336d6.90 - gsmtp')
+[2025-07-27T19:53:27.171+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=9021, status='terminated', exitcode=2, started='19:51:30') (9021) terminated with exit code 2
+[2025-07-27T20:10:16.412+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-27T20:10:16.608+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T00:00:00+00:00 [queued]>
+[2025-07-27T20:10:16.629+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T00:00:00+00:00 [queued]>
+[2025-07-27T20:10:16.629+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-27T20:10:16.676+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_weekly_predictions> on 2025-07-27 00:00:00+00:00
+[2025-07-27T20:10:16.705+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nog_production_pipeline', 'run_weekly_predictions', 'manual__2025-07-27T00:00:00+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/nog_production_pipeline_dag.py', '--cfg-path', '/tmp/tmpi0cx_7so']
+[2025-07-27T20:10:16.715+0000] {standard_task_runner.py:91} INFO - Job 67: Subtask run_weekly_predictions
+[2025-07-27T20:10:16.739+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=325) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-07-27T20:10:16.746+0000] {standard_task_runner.py:63} INFO - Started process 326 to run task
+[2025-07-27T20:10:16.904+0000] {task_command.py:426} INFO - Running <TaskInstance: nog_production_pipeline.run_weekly_predictions manual__2025-07-27T00:00:00+00:00 [running]> on host 0899e77ef937
+[2025-07-27T20:10:17.105+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='ketaki.kolhatkar99@gmail.com' AIRFLOW_CTX_DAG_OWNER='nog_team' AIRFLOW_CTX_DAG_ID='nog_production_pipeline' AIRFLOW_CTX_TASK_ID='run_weekly_predictions' AIRFLOW_CTX_EXECUTION_DATE='2025-07-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-27T00:00:00+00:00'
+[2025-07-27T20:10:17.107+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-27T20:10:21.564+0000] {nog_production_pipeline_dag.py:128} INFO - STARTING: run_weekly_predictions task
+[2025-07-27T20:10:21.566+0000] {nog_production_pipeline_dag.py:129} INFO - Execution date: 2025-07-27 00:00:00+00:00
+[2025-07-27T20:10:21.566+0000] {nog_production_pipeline_dag.py:130} INFO - Task instance: run_weekly_predictions
+[2025-07-27T20:10:21.567+0000] {nog_production_pipeline_dag.py:45} INFO - Checking if monthly data update is needed for: 2025-07-27 00:00:00+00:00
+[2025-07-27T20:10:21.567+0000] {nog_production_pipeline_dag.py:50} INFO - Execution date: 2025-07-27 00:00:00+00:00
+[2025-07-27T20:10:21.567+0000] {nog_production_pipeline_dag.py:51} INFO - Day of month: 27
+[2025-07-27T20:10:21.567+0000] {nog_production_pipeline_dag.py:52} INFO - Day of week: 6 (0=Monday)
+[2025-07-27T20:10:21.567+0000] {nog_production_pipeline_dag.py:53} INFO - Is first Monday of month: False
+[2025-07-27T20:10:21.567+0000] {nog_production_pipeline_dag.py:58} INFO - WEEKLY RUN: This is a regular weekly run - will use existing data
+[2025-07-27T20:10:21.568+0000] {nog_production_pipeline_dag.py:143} INFO - STEP 1: Weekly run detected - will use existing data
+[2025-07-27T20:10:21.568+0000] {nog_production_pipeline_dag.py:147} INFO - STEP 2: Initializing WeeklyPredictionPipeline...
+[2025-07-27T20:10:21.568+0000] {nog_production_pipeline_dag.py:149} INFO - WeeklyPredictionPipeline initialized successfully
+[2025-07-27T20:10:21.568+0000] {nog_production_pipeline_dag.py:158} INFO - STEP 3: Running weekly predictions with existing data (weekly run)...
+[2025-07-27T20:10:21.568+0000] {nog_production_pipeline_dag.py:162} INFO - STEP 4: Calling pipeline.run_weekly_pipeline(update_data=False)
+[2025-07-27T20:10:21.568+0000] {nog_production_pipeline_dag.py:163} INFO - This should use existing data
+[2025-07-27T20:10:21.568+0000] {weekly_predict.py:369} INFO - STARTING: run_weekly_pipeline method
+[2025-07-27T20:10:21.568+0000] {weekly_predict.py:370} INFO - Parameters: update_data=False, retrain=True, prediction_days=5
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:371} INFO - Current time: 2025-07-27 20:10:21.569081
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:375} INFO - STEP 1: Fetching latest data...
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:376} INFO - Data source: Existing CSV files
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:112} INFO - 🔄 STARTING: fetch_latest_data method
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:113} INFO - 📊 update_csv parameter: False
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:116} INFO - 📡 STEP 1: Calling run_data_pipeline...
+[2025-07-27T20:10:21.569+0000] {weekly_predict.py:117} INFO - 🎯 This should fetch fresh data from Yahoo Finance
+[2025-07-27T20:10:21.569+0000] {data_pipeline.py:187} INFO - STARTING: run_data_pipeline
+[2025-07-27T20:10:21.569+0000] {data_pipeline.py:188} INFO - Parameters: ticker=NOG, csvflag=True
+[2025-07-27T20:10:21.570+0000] {data_pipeline.py:189} INFO - Data source: Existing CSV
+[2025-07-27T20:10:21.570+0000] {data_pipeline.py:192} INFO -  STEP 1: Reading base CSV file...
+[2025-07-27T20:10:21.599+0000] {data_pipeline.py:194} INFO -  STEP 1 COMPLETED: Base CSV read successfully
+[2025-07-27T20:10:21.599+0000] {data_pipeline.py:195} INFO -  Base data shape: (3411, 6)
+[2025-07-27T20:10:21.599+0000] {data_pipeline.py:197} INFO -  STEP 2: Running news data pipeline...
+[2025-07-27T20:10:21.617+0000] {logging_mixin.py:188} INFO - [INFO] Loaded 645 existing news articles
+[2025-07-27T20:10:21.618+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas'
+[2025-07-27T20:11:04.721+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG stock'
+[2025-07-27T20:11:17.163+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas earnings'
+[2025-07-27T20:11:50.150+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil & Gas Inc'
+[2025-07-27T20:12:55.349+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q1 results'
+[2025-07-27T20:12:58.058+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q2 results'
+[2025-07-27T20:13:00.739+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q3 results'
+[2025-07-27T20:13:02.827+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG Q4 results'
+[2025-07-27T20:13:05.981+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG quarterly report'
+[2025-07-27T20:13:10.986+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas acquisition'
+[2025-07-27T20:13:32.366+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'NOG financial results'
+[2025-07-27T20:13:37.234+0000] {logging_mixin.py:188} INFO - [INFO] Fetching news for query: 'Northern Oil and Gas dividend'
+[2025-07-27T20:13:51.811+0000] {logging_mixin.py:188} INFO - [INFO] Fetched 187 new news articles
+[2025-07-27T20:13:52.377+0000] {logging_mixin.py:188} INFO - [INFO] Saved 646 total news articles to data/NOG_news_2years.csv
+[2025-07-27T20:13:52.595+0000] {logging_mixin.py:188} INFO - [INFO] Created 646 enhanced news chunks
+[2025-07-27T20:13:52.604+0000] {data_pipeline.py:199} INFO -  STEP 2 COMPLETED: News data pipeline completed
+[2025-07-27T20:13:52.605+0000] {data_pipeline.py:202} INFO -  STEP 3A: Using existing CSV data...
+[2025-07-27T20:13:52.646+0000] {data_pipeline.py:205} INFO -  Date range: 2023-04-27 to 2025-07-25
+[2025-07-27T20:13:52.646+0000] {data_pipeline.py:106} INFO - STARTING: get_data_from_csv
+[2025-07-27T20:13:52.647+0000] {data_pipeline.py:107} INFO - File path: /opt/***/project/data/NOG.csv
+[2025-07-27T20:13:52.649+0000] {data_pipeline.py:108} INFO - Date range: 2023-04-27 to 2025-07-25
+[2025-07-27T20:13:52.649+0000] {data_pipeline.py:111} INFO - STEP 1: Reading CSV file...
+[2025-07-27T20:13:52.719+0000] {data_pipeline.py:113} INFO - STEP 1 COMPLETED: CSV file read successfully
+[2025-07-27T20:13:52.720+0000] {data_pipeline.py:114} INFO - Raw data shape: (3411, 6)
+[2025-07-27T20:13:52.720+0000] {data_pipeline.py:116} INFO - STEP 2: Converting date column...
+[2025-07-27T20:13:52.725+0000] {data_pipeline.py:118} INFO - STEP 2 COMPLETED: Date column converted
+[2025-07-27T20:13:52.726+0000] {data_pipeline.py:120} INFO - STEP 3: Filtering by date range...
+[2025-07-27T20:13:52.754+0000] {data_pipeline.py:125} INFO - STEP 3 COMPLETED: Date filtering applied
+[2025-07-27T20:13:52.754+0000] {data_pipeline.py:126} INFO - Filtered data shape: (564, 6)
+[2025-07-27T20:13:52.754+0000] {data_pipeline.py:128} INFO - STEP 4: Cleaning data...
+[2025-07-27T20:13:52.761+0000] {data_pipeline.py:130} INFO - STEP 4 COMPLETED: Data cleaning completed
+[2025-07-27T20:13:52.761+0000] {data_pipeline.py:131} INFO - Final data shape: (564, 6)
+[2025-07-27T20:13:52.762+0000] {data_pipeline.py:208} INFO -  STEP 3A COMPLETED: Existing CSV data loaded
+[2025-07-27T20:13:52.762+0000] {data_pipeline.py:209} INFO -  Stock data shape: (564, 6)
+[2025-07-27T20:13:52.763+0000] {data_pipeline.py:244} INFO - 🔧 STEP 4: Computing macroeconomic indicators...
+[2025-07-27T20:13:54.988+0000] {data_pipeline.py:250} INFO - STEP 4 COMPLETED: Macro indicators computed
+[2025-07-27T20:13:54.993+0000] {data_pipeline.py:251} INFO - Macro data shape: (581, 3)
+[2025-07-27T20:13:54.994+0000] {data_pipeline.py:260} INFO - 🔧 STEP 5: Preprocessing data...
+[2025-07-27T20:13:54.994+0000] {data_pipeline.py:144} INFO - STARTING: preprocess_data
+[2025-07-27T20:13:54.994+0000] {data_pipeline.py:145} INFO - Main data shape: (564, 6)
+[2025-07-27T20:13:54.995+0000] {data_pipeline.py:146} INFO - Macro data shape: (581, 3)
+[2025-07-27T20:13:54.995+0000] {data_pipeline.py:149} INFO - STEP 1: Computing technical indicators...
+[2025-07-27T20:13:55.053+0000] {data_pipeline.py:151} INFO - STEP 1 COMPLETED: Technical indicators computed
+[2025-07-27T20:13:55.054+0000] {data_pipeline.py:152} INFO - Technical data shape: (515, 17)
+[2025-07-27T20:13:55.054+0000] {data_pipeline.py:154} INFO - STEP 2: Converting date columns...
+[2025-07-27T20:13:55.058+0000] {data_pipeline.py:157} INFO - STEP 2 COMPLETED: Date columns converted
+[2025-07-27T20:13:55.059+0000] {data_pipeline.py:159} INFO - STEP 3: Merging technical and macro data...
+[2025-07-27T20:13:55.064+0000] {data_pipeline.py:162} INFO - STEP 3 COMPLETED: Data merged
+[2025-07-27T20:13:55.065+0000] {data_pipeline.py:163} INFO - Merged data shape: (515, 19)
+[2025-07-27T20:13:55.065+0000] {data_pipeline.py:165} INFO - STEP 4: Handling missing values...
+[2025-07-27T20:13:55.066+0000] {data_pipeline.py:168} INFO - STEP 4 COMPLETED: Missing values handled
+[2025-07-27T20:13:55.066+0000] {data_pipeline.py:169} INFO - Final data shape: (515, 19)
+[2025-07-27T20:13:55.067+0000] {data_pipeline.py:263} INFO -  STEP 5 COMPLETED: Data preprocessing completed
+[2025-07-27T20:13:55.067+0000] {data_pipeline.py:264} INFO -  Final data shape: (515, 19)
+[2025-07-27T20:13:55.067+0000] {data_pipeline.py:273} INFO -  SUCCESS: Data pipeline completed successfully!
+[2025-07-27T20:13:55.067+0000] {data_pipeline.py:274} INFO -  Data source used: Existing CSV
+[2025-07-27T20:13:55.067+0000] {data_pipeline.py:275} INFO -  Final dataset shape: (515, 19)
+[2025-07-27T20:13:55.068+0000] {data_pipeline.py:276} INFO -  Date range: 2023-07-10 00:00:00 to 2025-07-25 00:00:00
+[2025-07-27T20:13:55.068+0000] {data_pipeline.py:287} INFO -  COMPLETED: run_data_pipeline
+[2025-07-27T20:13:55.071+0000] {weekly_predict.py:122} INFO - ✅ STEP 2: Data pipeline completed successfully
+[2025-07-27T20:13:55.071+0000] {weekly_predict.py:123} INFO - 📈 Data shape: (515, 19)
+[2025-07-27T20:13:55.072+0000] {weekly_predict.py:124} INFO - 📅 Date range: 2023-07-10 00:00:00 to 2025-07-25 00:00:00
+[2025-07-27T20:13:55.072+0000] {weekly_predict.py:125} INFO - 📊 Columns: ['Date', 'Close', 'High', 'Low', 'Open', 'Volume', 'ma_10', 'm_50', 'daily_change', 'volatility_10', 'RSI_14', 'bb_high', 'bb_low', 'Momentum_10', 'Cumulative_Price_Volume', 'Cumulative_Volume', 'VWAP', 'Crude_Oil', 'Fed_Funds_Rate']
+[2025-07-27T20:13:55.072+0000] {weekly_predict.py:128} INFO - 🎉 SUCCESS: Fresh data fetched from Yahoo Finance API!
+[2025-07-27T20:13:55.072+0000] {weekly_predict.py:129} INFO - 📈 Total rows: 515
+[2025-07-27T20:13:55.116+0000] {weekly_predict.py:130} INFO - 📊 Sample data: {'Date': {0: Timestamp('2023-07-10 00:00:00'), 1: Timestamp('2023-07-11 00:00:00'), 2: Timestamp('2023-07-12 00:00:00')}, 'Close': {0: 32.31741714477539, 1: 32.4651985168457, 2: 33.084022521972656}, 'High': {0: 32.372832007185515, 1: 32.539086180266864, 2: 33.157913711335084}, 'Low': {0: 31.70782899498597, 1: 31.98491637296815, 2: 32.54832549239839}, 'Open': {0: 31.855607833622027, 1: 32.40978012678555, 2: 32.6776315504568}, 'Volume': {0: 1479000.0, 1: 1245700.0, 2: 1237400.0}, 'ma_10': {0: 31.306367111206054, 1: 31.567440795898438, 2: 31.862998390197752}, 'm_50': {0: 29.524194297790526, 1: 29.58334976196289, 2: 29.63917362213135}, 'daily_change': {0: 0.017742645623413766, 1: 0.004572808879134138, 2: 0.019061149581631298}, 'volatility_10': {0: 0.8139880515263686, 1: 0.7083984330968599, 2: 0.6559325778515495}, 'RSI_14': {0: 64.18858263411917, 1: 65.65844435107147, 2: 67.7717935518494}, 'bb_high': {0: 32.44268110247368, 1: 32.70514876281451, 2: 33.045412129478}, 'bb_low': {0: 28.879798145573194, 1: 28.850092821963322, 2: 28.857442980690458}, 'Momentum_10': {0: 3.0291748046875, 1: 2.610736846923828, 2: 2.9555759429931676}, 'Cumulative_Price_Volume': {0: 2376390386.985588, 1: 2416832284.778023, 2: 2457770454.2467117}, 'Cumulative_Volume': {0: 81213700.0, 1: 82459400.0, 2: 83696800.0}, 'VWAP': {0: 29.260954580145814, 1: 29.309360543225186, 2: 29.36516634144569}, 'Crude_Oil': {0: 73.05, 1: 74.87, 2: 75.77}, 'Fed_Funds_Rate': {0: 5.12, 1: 5.12, 2: 5.12}}
+[2025-07-27T20:13:55.124+0000] {weekly_predict.py:379} INFO - STEP 1 COMPLETED: Data fetched successfully
+[2025-07-27T20:13:55.127+0000] {weekly_predict.py:380} INFO - Data shape: (515, 19)
+[2025-07-27T20:13:55.135+0000] {weekly_predict.py:381} INFO - Date range: 2023-07-10 00:00:00 to 2025-07-25 00:00:00
+[2025-07-27T20:13:55.156+0000] {weekly_predict.py:384} INFO - STEP 2: Preparing features and target...
+[2025-07-27T20:13:55.159+0000] {weekly_predict.py:153} INFO - 🔄 STARTING: prepare_features method
+[2025-07-27T20:13:55.160+0000] {weekly_predict.py:154} INFO - 📊 Input data shape: (515, 19)
+[2025-07-27T20:13:55.165+0000] {weekly_predict.py:165} INFO - ✅ STEP 1: Features prepared successfully
+[2025-07-27T20:13:55.165+0000] {weekly_predict.py:166} INFO - 📈 Features shape: (514, 5)
+[2025-07-27T20:13:55.166+0000] {weekly_predict.py:167} INFO - 📊 Target shape: (514,)
+[2025-07-27T20:13:55.167+0000] {weekly_predict.py:168} INFO - 📋 Feature columns: ['Open', 'High', 'Low', 'Close', 'Volume']
+[2025-07-27T20:13:55.167+0000] {weekly_predict.py:386} INFO - STEP 2 COMPLETED: Features prepared successfully
+[2025-07-27T20:13:55.168+0000] {weekly_predict.py:387} INFO - Features shape: (514, 5)
+[2025-07-27T20:13:55.169+0000] {weekly_predict.py:388} INFO - Target shape: (514,)
+[2025-07-27T20:13:55.169+0000] {weekly_predict.py:391} INFO - STEP 3: Model training/loading...
+[2025-07-27T20:13:55.170+0000] {weekly_predict.py:393} INFO - Training new model...
+[2025-07-27T20:13:55.170+0000] {weekly_predict.py:190} INFO - Training weekly model...
+[2025-07-27T20:13:56.512+0000] {weekly_predict.py:232} INFO - Model training completed. R²: -1.1452
+[2025-07-27T20:13:56.516+0000] {weekly_predict.py:395} INFO - Model training completed
+[2025-07-27T20:13:56.516+0000] {weekly_predict.py:396} INFO - Model metrics: {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}
+[2025-07-27T20:13:56.517+0000] {weekly_predict.py:398} INFO - Saving model...
+[2025-07-27T20:13:56.546+0000] {weekly_predict.py:239} INFO - Model saved to saved_models/xgb_model.pkl
+[2025-07-27T20:13:56.547+0000] {weekly_predict.py:400} INFO - Model saved successfully
+[2025-07-27T20:13:56.547+0000] {weekly_predict.py:402} INFO - Saving performance data...
+[2025-07-27T20:13:56.550+0000] {weekly_predict.py:353} INFO - Performance data saved to data/model_performance.json
+[2025-07-27T20:13:56.550+0000] {weekly_predict.py:404} INFO - Performance data saved successfully
+[2025-07-27T20:13:56.551+0000] {weekly_predict.py:426} INFO - STEP 4: Generating predictions...
+[2025-07-27T20:13:56.551+0000] {weekly_predict.py:427} INFO - Predicting 5 days ahead...
+[2025-07-27T20:13:56.551+0000] {weekly_predict.py:268} INFO - Generating predictions for next 5 days...
+[2025-07-27T20:13:56.558+0000] {weekly_predict.py:430} INFO - STEP 4 COMPLETED: Predictions generated successfully
+[2025-07-27T20:13:56.558+0000] {weekly_predict.py:431} INFO - Number of predictions: 5
+[2025-07-27T20:13:56.559+0000] {weekly_predict.py:432} INFO - Sample predictions: [{'date': '2025-07-28', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-29', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-30', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}]
+[2025-07-27T20:13:56.559+0000] {weekly_predict.py:435} INFO - STEP 5: Saving predictions...
+[2025-07-27T20:13:56.560+0000] {weekly_predict.py:329} INFO - Predictions saved to data/weekly_predictions.json
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:437} INFO - STEP 5 COMPLETED: Predictions saved successfully
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:440} INFO - STEP 6: Preparing final results...
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:450} INFO - SUCCESS: Weekly prediction pipeline completed successfully!
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:451} INFO - Final results: {'status': 'success', 'timestamp': '2025-07-27T20:13:56.561394', 'predictions': [{'date': '2025-07-28', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-29', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-30', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-31', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-01', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}], 'model_metrics': {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}, 'data_points': 514, 'data_updated': False}
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:452} INFO - Total predictions: 5
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:453} INFO - Model performance: {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}
+[2025-07-27T20:13:56.561+0000] {weekly_predict.py:454} INFO - Data points used: 514
+[2025-07-27T20:13:56.562+0000] {weekly_predict.py:455} INFO - Data source: Existing CSV
+[2025-07-27T20:13:56.562+0000] {weekly_predict.py:473} INFO - COMPLETED: run_weekly_pipeline method
+[2025-07-27T20:13:56.563+0000] {nog_production_pipeline_dag.py:167} INFO - STEP 5: Pipeline returned results: {'status': 'success', 'timestamp': '2025-07-27T20:13:56.561394', 'predictions': [{'date': '2025-07-28', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-29', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-30', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-31', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-01', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}], 'model_metrics': {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}, 'data_points': 514, 'data_updated': False}
+[2025-07-27T20:13:56.563+0000] {nog_production_pipeline_dag.py:170} INFO - SUCCESS: Weekly predictions with existing data (weekly run) completed successfully!
+[2025-07-27T20:13:56.564+0000] {nog_production_pipeline_dag.py:171} INFO - Predictions made: 5
+[2025-07-27T20:13:56.564+0000] {nog_production_pipeline_dag.py:172} INFO - Model metrics: {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}
+[2025-07-27T20:13:56.564+0000] {nog_production_pipeline_dag.py:173} INFO - Data points used: 514
+[2025-07-27T20:13:56.755+0000] {nog_production_pipeline_dag.py:176} INFO - Results saved to XCom for email task
+[2025-07-27T20:13:56.756+0000] {nog_production_pipeline_dag.py:241} INFO - COMPLETED: run_weekly_predictions task
+[2025-07-27T20:13:56.757+0000] {python.py:237} INFO - Done. Returned value was: {'status': 'success', 'timestamp': '2025-07-27T20:13:56.561394', 'predictions': [{'date': '2025-07-28', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-29', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-30', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-07-31', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}, {'date': '2025-08-01', 'predicted_price': 30.187328338623047, 'prediction_date': '2025-07-27', 'model_version': 'saved_models/xgb_model.pkl', 'confidence_interval': {'lower': 29.583581771850586, 'upper': 30.791074905395508, 'confidence_level': 0.95}}], 'model_metrics': {'MSE': 14.226529565481771, 'MAE': 2.876803574052829, 'R2': -1.1452176351474073}, 'data_points': 514, 'data_updated': False}
+[2025-07-27T20:13:56.758+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-27T20:13:56.806+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nog_production_pipeline, task_id=run_weekly_predictions, run_id=manual__2025-07-27T00:00:00+00:00, execution_date=20250727T000000, start_date=20250727T201016, end_date=20250727T201356
+[2025-07-27T20:13:56.988+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-27T20:13:57.092+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-27T20:13:57.094+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
