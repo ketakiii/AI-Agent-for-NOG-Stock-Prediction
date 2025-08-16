@@ -28,11 +28,26 @@ def compute_technical_indicators(df):
     df['bb_high'] = bb_indicator.bollinger_hband()
     df['bb_low'] = bb_indicator.bollinger_lband()
     # Momentum
-    df['Momentum_10'] = df['Close'] - df['Close'].shift(10)  
-    # Volume-Weighted Average Price (VWAP) = (Cumulative Sum of (Price * Volume)) / (Cumulative Sum of Volume)
-    df['Cumulative_Price_Volume'] = (df['Close'] * df['Volume']).cumsum()
-    df['Cumulative_Volume'] = df['Volume'].cumsum()
-    df['VWAP'] = df['Cumulative_Price_Volume'] / df['Cumulative_Volume']
+    df['Momentum_10'] = df['Close'] - df['Close'].shift(10)
+
+    # --- New Features ---
+    # MACD
+    df['macd'] = ta.trend.macd_diff(df['Close'])
+
+    # Stochastic Oscillator
+    df['stoch_oscillator'] = ta.momentum.stoch(df['High'], df['Low'], df['Close'])
+
+    # Average True Range (ATR)
+    df['atr'] = ta.volatility.average_true_range(df['High'], df['Low'], df['Close'])
+
+    # Lagged Features
+    df['close_lag_1'] = df['Close'].shift(1)
+    df['close_lag_3'] = df['Close'].shift(3)
+    df['close_lag_5'] = df['Close'].shift(5)
+
+    # Volume-Weighted Average Price (VWAP) - Calculated without cumulative sums to avoid data leakage
+    df['VWAP'] = (df['Close'] * df['Volume']).rolling(window=14).sum() / df['Volume'].rolling(window=14).sum()
+    
     return df
 
 def calculate_rsi(series, window=14):

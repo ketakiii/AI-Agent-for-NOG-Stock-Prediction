@@ -113,31 +113,31 @@ class WeeklyPredictionPipeline:
         logger.info(f"📊 update_csv parameter: {update_csv}")
         
         try:
-            logger.info("📡 STEP 1: Calling run_data_pipeline...")
-            logger.info(f"🎯 This should {'fetch fresh data from Yahoo Finance' if not update_csv else 'use existing data'}")
+            logger.info("STEP 1: Calling run_data_pipeline...")
+            logger.info(f"This should {'fetch fresh data from Yahoo Finance' if not update_csv else 'use existing data'}")
             
             # Call the data pipeline with the opposite flag (csvflag=True means use existing CSV)
             df = run_data_pipeline(csvflag=not update_csv)
             
-            logger.info(f"✅ STEP 2: Data pipeline completed successfully")
-            logger.info(f"📈 Data shape: {df.shape}")
-            logger.info(f"📅 Date range: {df['Date'].min()} to {df['Date'].max()}")
-            logger.info(f"📊 Columns: {list(df.columns)}")
+            logger.info(f"STEP 2: Data pipeline completed successfully")
+            logger.info(f"Data shape: {df.shape}")
+            logger.info(f"Date range: {df['Date'].min()} to {df['Date'].max()}")
+            logger.info(f"Columns: {list(df.columns)}")
             
             if not update_csv:
-                logger.info("🎉 SUCCESS: Fresh data fetched from Yahoo Finance API!")
-                logger.info(f"📈 Total rows: {len(df)}")
-                logger.info(f"📊 Sample data: {df.head(3).to_dict()}")
+                logger.info("SUCCESS: Fresh data fetched from Yahoo Finance API!")
+                logger.info(f"Total rows: {len(df)}")
+                logger.info(f"Sample data: {df.head(3).to_dict()}")
             else:
-                logger.info("📁 SUCCESS: Using existing CSV data")
-                logger.info(f"📈 Total rows: {len(df)}")
+                logger.info("SUCCESS: Using existing CSV data")
+                logger.info(f"Total rows: {len(df)}")
             
             return df
             
         except Exception as e:
-            logger.error(f"💥 EXCEPTION in fetch_latest_data: {str(e)}")
-            logger.error(f"🔍 Exception type: {type(e).__name__}")
-            logger.error(f"📚 Exception details: {e}")
+            logger.error(f"EXCEPTION in fetch_latest_data: {str(e)}")
+            logger.error(f"Exception type: {type(e).__name__}")
+            logger.error(f"Exception details: {e}")
             raise
     
     def prepare_features(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
@@ -150,8 +150,8 @@ class WeeklyPredictionPipeline:
         Returns:
             Tuple of (features DataFrame, target Series)
         """
-        logger.info("🔄 STARTING: prepare_features method")
-        logger.info(f"📊 Input data shape: {df.shape}")
+        logger.info("STARTING: prepare_features method")
+        logger.info(f"Input data shape: {df.shape}")
         
         try:
             # Your feature engineering logic here
@@ -162,16 +162,16 @@ class WeeklyPredictionPipeline:
             # Align features and target
             features = features.iloc[:-1]  # Remove last row since target is shifted
             
-            logger.info(f"✅ STEP 1: Features prepared successfully")
-            logger.info(f"📈 Features shape: {features.shape}")
-            logger.info(f"📊 Target shape: {target.shape}")
-            logger.info(f"📋 Feature columns: {list(features.columns)}")
+            logger.info(f"STEP 1: Features prepared successfully")
+            logger.info(f"Features shape: {features.shape}")
+            logger.info(f"Target shape: {target.shape}")
+            logger.info(f"Feature columns: {list(features.columns)}")
             
             return features, target
             
         except Exception as e:
-            logger.error(f"💥 EXCEPTION in prepare_features: {str(e)}")
-            logger.error(f"🔍 Exception type: {type(e).__name__}")
+            logger.error(f"EXCEPTION in prepare_features: {str(e)}")
+            logger.error(f"Exception type: {type(e).__name__}")
             raise
     
     def train_weekly_model(self, features: pd.DataFrame, target: pd.Series, 

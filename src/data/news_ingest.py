@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
+import os
+import json
 
 queries = [
     "Northern Oil and Gas",
@@ -24,6 +26,9 @@ queries = [
 
 articles = []
 seen_urls = set()
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+DATA_DIR = os.path.join(PROJECT_ROOT, 'data')
 
 def create_enhanced_content(title: str, description: str, source: str, date: str, url: str) -> str:
     """
@@ -174,7 +179,8 @@ def run_news_data_pipeline():
     """Enhanced news data pipeline that creates better chunks for RAG."""
     try:
         # Load existing news data
-        old_news_df = pd.read_csv('/opt/airflow/project/data/NOG_news_2years.csv')
+        news_csv_path = os.path.join(DATA_DIR, 'NOG_news_2years.csv')
+        old_news_df = pd.read_csv(news_csv_path)
         print(f"[INFO] Loaded {len(old_news_df)} existing news articles")
     except FileNotFoundError:
         old_news_df = pd.DataFrame()
@@ -188,19 +194,22 @@ def run_news_data_pipeline():
     if not old_news_df.empty:
         data = pd.concat([old_news_df, updated_news_df])
         data = data.drop_duplicates(subset=['url'])  # Remove duplicates
+        data['date'] = pd.to_datetime(data['date'])
+        two_years_data = datetime.now() - pd.DateOffset(years=2)
+        data = data[data['date'] >= two_years_data]
     else:
         data = updated_news_df
     
     # Save the raw data
-    data.to_csv('/opt/airflow/project/data/NOG_news_2years.csv', index=False)
+    data.to_csv(news_csv_path, index=False)
     print(f"[INFO] Saved {len(data)} total news articles to data/NOG_news_2years.csv")
 
     # Create enhanced chunks
     enhanced_chunks = create_enhanced_news_chunks(data)
-    
+    chunks_json_path = os.path.join(DATA_DIR, 'chunks', 'enhanced_news_chunks.json')
+    os.makedirs(os.path.dirname(chunks_json_path), exist_ok=True)
     # Save enhanced chunks
-    import json
-    with open('/opt/airflow/project/data/chunks/enhanced_news_chunks.json', 'w') as f:
+    with open(chunks_json_path, 'w') as f:
         json.dump(enhanced_chunks, f, indent=2)
     
     print(f"[INFO] Created {len(enhanced_chunks)} enhanced news chunks")
