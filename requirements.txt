@@ -1,6 +1,5 @@
 apache-airflow
 numpy
-pandas
 pandas_datareader
 ta
 yfinance
@@ -19,3 +18,5 @@ openai
 python-dotenv
 tqdm
 chromadb
+xgboost
+pandas
